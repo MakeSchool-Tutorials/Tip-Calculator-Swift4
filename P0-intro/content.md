@@ -13,7 +13,7 @@ Instead of having to do the math in your head, we'll build a simple tip calculat
 
 # Who Is This For?
 
-Beginners that already have a basic understanding of Xcode and iOS development. This tutorial will focus on building complex UI with _Interface Builder_.
+iOS Beginners with a basic understanding of navigating and using Xcode. This tutorial will focus on building intermediate-level UI with _Interface Builder_.
 
 ## What You Should Already Know
 

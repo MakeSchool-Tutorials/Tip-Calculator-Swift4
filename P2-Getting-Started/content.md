@@ -1,5 +1,5 @@
 ---
-title: "Getting-Started""
+title: "Getting-Started"
 slug: getting-started
 ---
 
@@ -18,7 +18,7 @@ Build and run the current starter project in a simulator or iPhone device of you
 > [action]
 Run the new starter project to make sure there are no compilation errors. If all goes well, your project should run successfully and display an empty white screen (we haven't built anything yet!)
 >
-![Empty Screen](assets/empty_screen.png)
+![Empty Screen](assets/white_screen.png)
 
 Next, let's take a look inside our starter project.
 
@@ -26,10 +26,10 @@ Next, let's take a look inside our starter project.
 
 <!-- TODO: considering adding a section about directory layout? -->
 
-First, we'll start with our view controller. 
+First, we'll start with our view controller.
 
 > [action]
-Open the `ViewController.swift` source file. You should see the following code:
+Using the _Project Navigator_, open the `ViewController.swift` source file. You should see the following code:
 >
 ```
 class ViewController: UIViewController {
@@ -42,20 +42,33 @@ class ViewController: UIViewController {
 }
 ```
 
-Just boilerplate code, nothing is happening yet. We'll need to write our tip calculator logic in here later.
+Just boilerplate code, nothing is happening yet. We'll eventually write our tip calculator logic in here later.
+
+## Main Storyboard
+
+Let's move onto our storyboard.
 
 > [action]
-Next open `Main.storyboard`. You'll see the following:
+Open `Main.storyboard` from your _Project Navigator_. You'll see the following:
 >
 ![Starting Storyboard](assets/starting_storyboard.png)
 
-You can notice in the class inspector, the `ViewController.swift` source code is paired with the View Controller object in your `Main.storyboard`.
+Right now there's an empty, white view controller. (The one we saw in our simulator remember?)
 
+Let's review how our storyboard view controller is connected to our `.swift` file.
+
+> [action]
+Click on the view controller representation in your storyboard. With your storyboard view controller selected, navigate to the _Class Inspector_ in the _Utilities area_.
+>
+You'll notice that the `ViewController.swift` source code is paired with the View Controller object in your `Main.storyboard`.
+>
 ![Storyboard View Controller Class](assets/storyboard_vc_class.png)
+
+Next we'll take a look at our project's assets.
 
 ## XCAssets
 
-Next we'll take a look at our project's assets.
+Your project assets contain your media: images, movies, app icons, etc.
 
 > [action]
 Open `Assets.xcassets` to see your project assets. ![Project Assets](assets/project_assets.png)
@@ -65,7 +78,7 @@ In your asset catalog, you should see an app icon that's already set for you and
 To pair with our custom colors in our asset catalog, your project also contains a `UIColor` extension that allows you to access each of the app's colors through code.
 
 > [action]
-Open `UIColor+TC.swift` from your project navigator. You should see the following:
+Open `UIColor+TC.swift` from your _Project Navigator_. If you don't see it, you'll have to expand the `Supporting Files` folder in your _Project Navigator_. You should see the following:
 >
 ```
 import UIKit.UIColor
@@ -118,8 +131,8 @@ extension UIColor {
 
 This file pairs each of the class variables to the custom color sets defined in our asset catalog.
 
-In your code, you can access each respective color through the `UIColor` class variable:
->
+Once we start coding, we'll be able to access each respective color through the `UIColor` class variable:
+
 ```
 let selectedColor = UIColor.tcSeafoamGreen
 ```
@@ -131,7 +144,7 @@ In this project, your custom colors have been defined in your asset catalog, how
 
 ## App Delegate
 
-To wrap up our project tour, we'll take a look at our app delegate.
+To wrap up our new project tour, let's briefly take a look at our _App Delegate_.
 
 > [action]
 Open `AppDelegate.swift` from your project navigator:
@@ -153,11 +166,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-We'll cover this file briefly because we won't change the app delegate in this app. 
+> [info]
+For this tutorial, you won't need to change or modify the _App Delegate_. However, it's helpful to know about it's purpose for when you start writing your own apps.
 
 Each iOS Xcode project must have an `AppDelegate.swift` file which is responsible for the app's lifecycle. The app delegate specifies what happens when app lifecycle events are triggered. Common example events are app launch, receiving a push notification, app termination, etc.
 
-In our tip calculator's app delegate, we don't add any code other than the boilerplate `application(_:didFinishLaunchingWithOptions:)` method that comes by default in each Xcode project template. 
+In our tip calculator's app delegate, we don't add any code other than the boilerplate `application(_:didFinishLaunchingWithOptions:)` method that comes by default in each Xcode project template.
 
-We've just taken a look at the files in our new Xcode starter project. We'll build on this project to create our final tip calculator. Let's get started by diving into storyboard and creating our views for our UI.
+## Wrapping Up
 
+We've just taken a look at the files in our new Xcode starter project. Throughout this tutorial, we'll continue to build on this project to create our final tip calculator.
+
+Let's get started by diving into storyboard and creating our views for our UI.

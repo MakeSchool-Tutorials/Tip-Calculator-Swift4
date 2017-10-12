@@ -3,7 +3,7 @@ title: "Design Breakdown"
 slug: design-breakdown
 ---
 
-Before we jump into Xcode, we'll first take some time to review and breakdown our tip calculator design. We'll learn to visually break apart designs into smaller chunks that we can code one at a time. 
+Before we jump into Xcode, we'll first take some time to review and breakdown our tip calculator design. We'll learn to visually break apart designs into smaller chunks that we can code one at a time.
 
 ![Design Breakdown](assets/design_breakdown.png)
 
@@ -12,7 +12,7 @@ In this tutorial, we'll often refer to the terms _UI_ (user interface) and _view
 
 # Reviewing Our Design
 
-Let's take another look at the designs for the tip calculator app that we're going to build: 
+Let's take another look at the designs for the tip calculator app that we're going to build:
 
 ![Light Flow](assets/light_flow.png)
 
@@ -32,7 +32,7 @@ We've reviewed our app designs. Next, let's learn to visually breakdown our desi
 
 Implementing an app design without any planning can be overwhelming. It's hard to know where to start.
 
-Instead, let's take our designs and visually break down elements into smaller groups that we can implement one at a time. 
+Instead, let's take our designs and visually break down elements into smaller groups that we can implement one at a time.
 
 ![Design Breakdown Groups](assets/design_breakdown_groups.png)
 
@@ -54,12 +54,14 @@ To better understand this, let's take a look at Square Cash, an app that allows 
 
 As you can see, the whole screen has a base `UIView` (blue color) that we've named the root view. This will usually be the root view of the respective active `UIViewController`.
 
-On top of the root, you can add subviews. These subviews (with a few exceptions) will be `UIView` objects or `UIView` subclasses. In the _Square Cash_ app, the UI consists of buttons and labels but there are many other type of UI objects `UIKit` provides.
+On top of the root, you can add subviews. These subviews are `UIView` objects or `UIView` subclasses. In the _Square Cash_ app, the UI consists of buttons and labels but there are many other type of UI objects `UIKit` provides.
 
 > [info]
 **What is UIKit?**
 >
 `UIKit` is a framework that provides pre-built objects and functionality that you can use to build iOS apps. This includes a lot of under-the-hood functionality (handling your app's lifecycle and resource management) as well as commonly used UI components (buttons and labels.)
+
+<!-- break -->
 
 > [challenge]
 Identify each of the `UIView` objects in the tip calculator design. You can reference the design below:
@@ -77,17 +79,17 @@ You'll notice many new UI components that we're using from UIKit. Each of these 
 
 ## Grouping Subviews
 
-It's common to organize our subviews in groups. Although you can technically group subviews however you'd like, usually groups are based on how you plan to position and layout your UI (more on this later.) 
+It's common to organize our subviews in groups. Although you can technically group subviews however you'd like, usually groups are based on how you plan to position and layout your UI (more on this later.)
 
 Using our _Square Cash_ example, you might group each of the subviews in the following manner:
 
-![Square Cash Groups](asssets/square_cash_groups.png)
+![Square Cash Groups](assets/square_cash_groups.png)
 
-This makes it easier to re-position entire groups of views. i.e. repositioning the entire header up a few pixels
+This makes it easier to re-position entire groups of views. i.e. repositioning the entire header up or down a few pixels
 
 Let's apply the steps we just took with the _Square Cash_ app to our own tip calculator design.
 
-> [challenge] 
+> [challenge]
 Group each of the view elements together using where you left off from the previous challenge. Check your answer in the solution when you're done. You can reference the design below:
 >
 ![Tip Calculator Design](assets/tc_design_reference.png)
@@ -95,7 +97,7 @@ Group each of the view elements together using where you left off from the previ
 <!-- break  -->
 
 > [solution]
-You should have grouped each of the individual view objects from the previous challenge as follows: 
+You should have grouped each of the individual view objects from the previous challenge as follows:
 >
 ![Tip Calculator View Grouped](assets/tc_view_grouped.png)
 
@@ -126,7 +128,7 @@ As you can see, the header is a `UIView` placed on top of the root view. Additio
 
 ![Header Title Label](assets/header_title_label.png)
 
-The `UILabel` class can be configured from it's many properties. (i.e. text, font, text color, number of lines, etc.) 
+The `UILabel` class can be configured from it's many properties. (i.e. text, font, text color, number of lines, etc.)
 
 <!-- In our case, we'll use an off-black (#4A4A4A) text color and bold font weight of `San Francisco`, the default system font created by Apple. -->
 
@@ -138,7 +140,7 @@ The `UISwitch` object is a subclass of `UIControl`, which is a subclass of `UIVi
 
 ```
 class UISwitch : UIControl, NSCoding { ... }
->
+
 class UIControl : UIView { ... }
 ```
 
@@ -196,11 +198,11 @@ Our tip calculator will need a segmented control so that the user can choose the
 
 ## Tip Output
 
-The tip output group provides the output tip amount and total bill amount of the tip calculator. 
+The tip output group provides the output tip amount and total bill amount of the tip calculator.
 
 ![Output Outline](assets/tc_output_outline.png)
 
-We've already introduce all of the UI objects in this group.
+We've already introduced all of the UI objects in this group.
 
 > [challenge]
 Identify all of the different UIKit objects in the tip output group.
@@ -214,11 +216,11 @@ The entire tip output group is made up of a card view that is a `UIView` with 4 
 
 ## Reset Button
 
-Next, we'll introduce the last UIKit object that we'll need for our tip calculator: the reset button group.
+Next, we'll introduce the last UIKit object that we'll need for our tip calculator: `UIButton`.
 
 ![Reset Outline](assets/tc_reset_outline.png)
 
-Simple enough, this grouping will consist only of a single element: a button. 
+Simple enough, this grouping will consist only of a single element: a button.
 
 ### UIButton
 
@@ -227,6 +229,9 @@ The `UIButton`, along with labels, are one of the most common objects for buildi
 ![Reset Button](assets/reset_button.png)
 
 Our reset button will allow a user to clear the current input from our tip calculator and reset it to a empty state.
+
+> [info]
+You don't need to memorize all of the UIKit objects we've just covered. Just remember that there are pre-made UI components that you can use to build your UI. If you're trying to build any type of visual element, check `UIKit` to see if there's a base UI object you can use to build off of.
 
 # Reviewing What We've Learning
 
