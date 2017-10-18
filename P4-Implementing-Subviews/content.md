@@ -3,399 +3,997 @@ title: "Implementing Subviews"
 slug: implementing-subviews
 ---
 
-In the previous section, we've built a skeleton of the main scaffolding of our UI.
+In the previous section, we implemented a skeleton of each of the UI groups in storyboard. If you build and run your project, your app should look like the following:
 
-![Finished UI Skeleton](assets/finshed_skeleton.png)
+![Finished UI Skeleton](assets/finished_ui_groups.png)
 
-In this section, we'll finish implementing each of our _view groups_:
+In this section, we'll finish building each of our _view groups_:
 
 1. Custom Navigation Bar
 1. Tip Input Card
 1. Tip Output Card
 1. Reset Button
 
-For each group, we'll need to:
+To finish implementing each of our _view groups_, we'll need to the process below:
 
-1. Add the correct UIKit objects
-1. Identify and set _auto-layout_ constraints for each view object
-1. Create the appropriate `IBOutlets` and `IBActions` for each view object
+1. Add each of the correct `UIKit` objects
+1. Identify and set _auto-layout_ constraints for each subview
+1. Configure each subview's attributes to match the designs
+1. Create the appropriate `IBOutlets` and `IBActions`
 
-By implementing and connecting our UI, we'll set a strong foundation for implementing our future tip calculator code.
-
-Let's get started by completing our navigation bar.
+Let's start by finishing the first UI group: our custom navigation bar.
 
 # Custom Navigation Bar
 
-We've already build the base view of our custom navigation bar using a `UIView`. To finish our navigation bar, we'll need to first add the remaining subviews: a `UILabel` and `UISwitch`.
+In our previous step, we've already added a base view (`UIView`) for our nav bar. In it's current state, our nav bar looks like the following:
 
+![Current Nav Bar](assets/current_nav_bar.png)
+
+To finish implementing our nav bar, we'll need to identify and add the remaining subviews.
+
+> [challenge]
+Using the design below, can you identify the views we'll need to finish building the UI for our navigation bar?
+>
 ![Nav Bar Design](assets/nav_bar_design.png)
 
-Let's start by adding the title label.
+<!-- break -->
+
+> [solution]
+We'll need the following view objects to build our nav bar:
+>
+- `UILabel`: title label
+- `UISwitch`: theme color switch
+
+After identifying both of the view objects we'll need to add, we'll need to add them and set each of their respective constraints. Let's start with the title label!
 
 ## Title Label
 
-Before we add our title label in our storyboard, let's first think all of constraints we'll need to create our layout.
+### Identifying Constraints
+
+Before we starting adding constraints in storyboard, let's take a step back and think of all the constraints we'll need for our title label.
 
 > [challenge]
-Using the design below, identify each of the _auto-layout_ constraints for your title label.
+Using the design below, identify each of the _auto-layout_ constraints for your title label. Write each of the constraints down on a sheet of paper.
+>
+Hint: the red area represents the frame of the label.
 >
 ![Nav Bar Label Dimensions](assets/nav_bar_label_dimensions.png)
 
-<!-- break -->
+Check your answer with the solution below.
 
 > [solution]
-Check that you have all of the necessary constraints for the title label:
+Based on our design, our label will need the following constraints:
 >
 ![Nav Bar Label Constraints](assets/nav_bar_label_constraints.png)
 >
-Each of the constraints listed out:
-- (Label) Top Edge 0pts from Safe Area Top Edge
-- (Label) Leading Edge 24pts from Super View (Nav Bar) Leading Edge
-- (Label) Bottom Edge 0pts from Super View (Nav Bar) Bottom Edge
-
-After verifying that your title label constraints are correct, let's implement our new label in storyboard.
-
-> [action]
-Open storyboard and implement your navigation bar title label:
-![Add Nav Bar Label With Constraints](assets/add_nav_bar_label_with_constraints.mov)
+**Constraints**:
 >
-Let's break down the video step-by-step:
-1. Drag a `UILabel` from the _Object Library_ on top of the custom nav bar view (`UIView`) in your view controller.
-1. Add the constraints we previous identified to our label:
-    - (Label) Leading Edge 24pts from Super View (Nav Bar) Leading Edge
-    - (Label) Bottom Edge 0pts from Super View (Nav Bar) Bottom Edge
-    - (Label) Top Edge 0pts from Safe Area Top Edge
-    
-We've successfully added the constraints to our navigation bar title label. 
+- (Label) Leading Edge 24pts from Super View (Nav Bar) Leading Edge
+- (Label) Bottom Edge 0pts from Super View Bottom Edge
+- (Label) Top Edge 0pts from Safe Area Top Edge
 
-![Nav Bar Title Label Without Styling](assets/nav_bar_label_wo_styling.png)
+### Adding Constraints
 
-Next, we'll style it with the correct attributes so it matches our design.
+After identifying our constraints, we can use _Interface Builder_ to add our new `UILabel` and it's constraints.
 
 > [action]
-In your storyboard, select your navigation bar's title label and open the _Attributes Inspector_ in the _Utilities area_. Using the _Attributes Inspector_, find each of the view object propertoes and change their values to the following:
-    - Font: `System Bold 24.0`
-    - Font Color: `tcCharcoal`
-    - Text: `Tip Calculator`
-    
-After you're done, your new title label should look like the following:
+Open `Main.storyboard` and implement your title label and it's constraints:
+>
+![Add Nav Bar Label With Constraints](assets/add_nav_bar_label_w_constraints.mov)
+>
+Step-by-step:
+>
+1. Drag a `UILabel` from the _Object Library_ and drop it on top of your nav bar view (`UIView`).
+1. With your new `UILabel` selected, click the `Add New Constraints` button.
+1. Add the following first two constraints using the `Add New Constraints` popup:
+    - (Label) Leading Edge 24pts from Super View Leading Edge
+    - (Label) Bottom Edge 0pts from Super View Bottom Edge
+1. To add the final constraint, select your `UILabel` in the _Document Outline_.
+1. With your `UILabel` selected, hold control (ctrl) and click-drag to the _Safe Area_ object in the _Document Outline_.
+1. You should see a popup to add a new constraint. Select `Vertical Spacing`. Wait a second, our new `Vertical Spacing` constraint isn't not properly configured.
+1. Hover over the new `Vertical Spacing` and click on it. You should see it's attributes appear in the _Attributes Inspector_.
+1. In the _Attributes Inspector_, change the constraint's attributes:
+    - _Second Item_: Change from `Label.Bottom` to `Top`
+    - _Constant_: Change from `-85` to `0`
 
-![Nav Bar Label Styled](assets/nav_bar_label_styled.png)
+<!-- break -->
 
-Next, let's move on to our `UISwitch`:
+> [info]
+Identifying and setting the _auto-layout_ constraints for each view object can be tricky for newbies. If you find yourself struggling, slow down and try to break down your layout problem into smaller chunks. As you continue to practice, working with constraints will become easier and easier.
+
+Nice! We've added a title label to our nav bar. If you build and run your project, you'll see the following:
+
+![Nav Bar Title Label Without Styling](assets/nav_bar_label_no_styling.png)
+
+But... it's still off. Our title label still doesn't look like our final design.
+
+That's because we'll need to use the _Attribute Inspector_ to set the `UILabel` attributes to match our designs.
+
+### Configuring Attributes
+
+> [action]
+In `Main.storyboard`, select your nav bar's title label. Navigate to the _Attributes Inspector_ in the _Utilities area_ and change the following attributes:
+>
+- _Text_: Change from `Label` to `Tip Calculator` ![Set Nav Bar Label Text](assets/set_nav_bar_label_text.png)
+- _Font_: Change from `System 17.0` to `System Bold 24.0` ![Set Nav Bar Label Font](assets/set_nav_bar_label_font.png)
+- _Font Color_: Use the blue dropdown to change from `Default` to `tcCharcoal` ![Set Nav Bar Text Color](assets/set_nav_bar_label_text_color.png)
+
+After configuring each of the attributes above, your title label should look like the following:
+
+![Nav Bar Label Styled](assets/nav_bar_label_w_styling.png)
+
+Looks pretty good huh? Let's move on to our `UISwitch`.
 
 ## Light/Dark Mode (Theme) Switch
 
-We'll finish our navigation bar by implementing our switch. Again, let's start by figuring out all of the constraints we'll need for our `UISwitch`.
+Identify constraints. Add object and set constraints. Configure attributes. Rinse. Repeat.
+
+We'll going to repeat this process many times before this tutorial is over. Get used to this, as it's the same process you'll need to use if when you're building your own apps.
+
+Let's start by identifying the constraints needed for our `UISwitch`.
+
+### Identifying Constraints
 
 > [challenge]
-Using the design below, identify each of the _auto-layout_ constraints for your switch.
+Using the design below, identify each of the _auto-layout_ constraints for your theme switch. Write each of the constraints down on a sheet of paper.
+>
+Hint: the red area represents the frame of the switch.
 >
 ![Nav Bar Switch Dimensions](assets/nav_bar_switch_dimensions.png)
+
+Check your answer with the solution below.
+
+> [solution]
+Based on our design, our `UISwitch` will need the following constraints:
+>
+![Nav Bar Switch With Constraints](assets/nav_bar_switch_constraints.png)
+>
+**Constraints**:
+>
+- (Switch) Trailing Edge 24pts from Super View (Nav Bar) Trailing Edge
+- (Switch) Leading Edge ≥20pts from Label Trailing Edge
+- (Switch) Center vertically aligned with Label Center
+
+### Adding Constraints
+
+Let's go ahead and add these constraints to our `UISwitch`.
+
+> [action]
+Open `Main.storyboard` and implement your `UISwitch` and it's constraints:
+>
+![Add Switch With Constraints](assets/add_switch_w_constraints.png)
+>
+Step-by-step:
+>
+1. Drag a `UISwitch` from the _Object Library_ and drop it next to your nav bar title label.
+1. With your  `UISwitch` selected, click the `Add New Constraints` button.
+1. Add the following two constraints using the `Add New Constraints` popup:
+    - (Switch) Trailing Edge 24pts from Super View Trailing Edge
+    - (Switch) Leading Edge 20pts from Label Trailing Edge
+1. Hover over the switch's leading edge constraint to the label and click on it. You should see it's attributes appear in the _Attributes Inspector_.
+1. Using the _Attributes Inspector_, change the constraint's _Relation_ attribute from `Equal` to `Greater Than or Equal`.
+1. Click on the `UISwitch` to select it again. (Make sure you're not selecting the constraint from the previous step.)
+1. With your switch selected, hold control (ctrl) and click-drag from the `UISwitch` to the `UILabel`.
+1. You should see a popup to add a new constraint. Select `Center Vertically` to vertically align your switch's center to the label's center.
+
+Nice! We've added and set our constraints for our `UISwitch`. Now, let's configure the switch's attributes.
+
+### Configuring Attributes
+
+> [action]
+In `Main.storyboard`, select your nav bar's switch. Navigate to the _Attributes Inspector_ in the _Utilities area_ and change the following attributes:
+>
+![Switch Attributes](assets/switch_attrs.png)
+>
+**Attributes:**
+>
+- _State_: Change from `On` to `Off`
+- _On Tint_: Change from `Default` to `tcSeafoamGreen`
+
+When you're done, your custom navigation bar should look like the following:
+
+![Nav Bar With Styling](assets/nav_bar_w_styling.png)
+
+## Adding Our IB Connections
+
+We're almost finished with implementing our first UI group! To finish up, we'll need to create our `IBOutlets` and `IBActions`.
+
+`IBOutlets` and `IBActions` allow our Swift code receive events and interact with our storyboard views.
+
+`IBOutlets` create an instance variable that we can reference in our Swift code. This allows us interact with our title label and switch programmatically.
+
+`IBActions` create a function that will execute code when triggered. These functions are triggered by user interaction with your UI elements. A common example is a user tapping a button. When the button is tapped, it triggers an `IBAction` that will run any code within it's corresponding function.
+
+We'll need both of these connections later to implement our tip calculator logic.
+
+Let's get started by creating our first `IBOutlet` for our custom navigation bar (`UIView`.)
+
+> [action]
+Open your `Main.storyboard` and `ViewController.swift` files side-by-side using the _Assistant Editor_:
+>
+![Using Assistant Editor](assets/using_assistant_editor.mov)
+>
+To create IB connections, we'll need to first open our storyboard and view controller source code side-by-side:
+>
+1. Open your `Main.storyboard` in your main editor.
+1. Hold down the option button and click on `ViewController.swift` file in your _Project Navigator_. This will open your view controller in your _Assistant Editor_.
+1. (Optional) Use your Xcode toolbar to hide the _Utilities area_ to create more space in your project.
+
+With our `Main.storyboard` and `ViewController.swift` files side-by-side, let's create an `IBOutlet` for our nav bar.
+
+> [action]
+Create an `IBOutlet` for your custom navigation bar called `headerView`:
+>
+![Create Header View IBOutlet](assets/header_view_iboutlet.mov)
+>
+Step-by-step:
+>
+1. Select your nav bar view (`UIView`) in the _Document Outline_.
+1. With your nav bar selected, hold down ctrl and click-drag from the nav bar in your _Document Outline_ to your Swift code within the `ViewController` class definition.
+1. You should see a popup for creating a new IB connection. Set the name field as `headerView`.
+1. Click _Connect_ to create your new `IBOutlet`.
+
+You should see a new `IBOutlet` instance variable in your `ViewController` class:
+
+```
+class ViewController: UIViewController {
+
+    @IBOutlet weak var headerView: UIView!
+
+    // MARK: - View Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+```
+
+As you can see, we can now reference our custom nav bar's view as `headerView` in our Swift code.
+
+> [info]
+From this point forward, we'll refer to our custom nav bar by it's instance variable name: header view.
+
+Awesome! Repetition is the mother of learning. Let's do it again.
+
+> [action]
+Create an `IBOutlet` for your header view's title label called `titleLabel`:
+>
+![Create Title Label IBOutlet](assets/title_label_iboutlet.mov)
+>
+Step-by-step:
+>
+1. Select your title label (`UILabel`) in your storyboard view controller.
+1. With your nav bar selected, hold down ctrl and click-drag from the label to your Swift code within the `ViewController` class definition.
+1. You should see a popup for creating a new IB connection. Set the name field as `titleLabel`.
+1. Click _Connect_ to create your new `IBOutlet`.
+
+<!-- break -->
+
+> [info]
+Notice that last time we created an `IBOutlet` by ctrl-dragged from our nav bar view in the _Document Outline_. This time we created our `IBOutlet` by ctrl-dragged directly from the label's storyboard object. Both ways of creating `IBOutlets` are valid.
+
+At this point, we've walked through creating an `IBOutlet` twice. It's your turn.
+
+> [challenge]
+Create an `IBOutlet` for your `UISwitch` named `themeSwitch`. If you get stuck, go back and reference the steps we used to create the previous two `IBOutlets`.
 
 <!-- break -->
 
 > [solution]
-For our `UISwitch`, we'll need the following the constraints:
-![Nav Bar Switch With Constraints](assets/nav_bar_switch_constraints.png)
+After creating an `IBOutlet` for your switch, your `ViewController.swift` file should look like the following:
 >
-Each of the constraint listed:
-    - (Switch) Trailing Edge 24pts from Super View (Nav Bar) Trailing Edge
-    - (Switch) Center aligned with Label Center
-    - (Switch) Leading Edge ≥20pts from Label Trailing Edge
+```
+class ViewController: UIViewController {
+>
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var themeSwitch: UISwitch!
+>
+    // MARK: - View Lifecycle
+>
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+```
 
-Next, we'll add our switch and it's constraints in storyboard.
+After checking your solution, let's move on to creating our first `IBAction`.
+
+We'll need to create an `IBAction` for our switch. This will allow us to execute code each time our switch is toggled from off to on and vice versa.
 
 > [action]
-![Add Switch With Constraints](assets/add_switch_with_constraints.png)
+Open both your `Main.storyboard` and `ViewController.swift` file using the _Assistant Editor_. Create a new `IBAction` for your switch:
 >
-1. Drag a `UISwitch` from the _Object Library_ to your view controller.
-1. Size and position so that it looks relatively correct (we'll add constraints next but this will make it easier)
-1. Add the following constraints to your `UISwitch`
-    - (Switch) Trailing Edge 24pts from Super View (Nav Bar) Trailing Edge
-    - (Switch) Leading Edge ≥20pts from Label Trailing Edge
-    - (Switch) Center aligned with Label Center (Remember, you'll need to select the switch and ctrl-drag to the label.)
-
-Before moving on, let's configure the `Tint Color` attribute of our switch.
-
-> [action]
-In your `Main.storyboard`, select your switch and open the _Attributes Inspector_. 
+![Create Switch IBAction](assets/switch_ibaction.mov)
 >
-In the _Attributes Inspector_ pane, find and change the following attributes:
-    - State: `Off`
-    - On Tint: `tcSeafoamGreen`
+Step-by-step:
 >
-![Switch Attributes](assets/switch_attrs.png)
+1. Select your switch (`UISwitch`) in the _Document Outline_.
+1. With your switch selected, hold down ctrl and click-drag from the switch in your _Document Outline_ to your `ViewController` class.
+1. You should see a popup for creating a new IB connection. In the popup, change the _Connection_ type from `Outlet` to `Action`. Changing this property allows us to create a different type of IB connection.
+1. Set the name of our action as `themeToggled`.
+1. Change the _Type_ property from `Any` to `UISwitch`.
+1. Make sure the _Event_ property is set as `Value Changed`. If not, use the dropdown to set it to `Value Changed`.
+1. Click _Connect_ to create your new `IBAction`.
 
-## Adding Our IB Connections
-
-We've almost finished building our custom navigation bar. Before we move on to our tip input card, we'll need to make our `IBOutlets` and `IBActions` so that we can interact with our storyboard objects with code.
-
-For review, `IBOutlets` create a reference in our view controller so that we can write code that interacts with our `UILabel` and `UISwitch` objects. We'll need this later to implement our tip calculator logic for theming.
-
-First, let's create a `IBOutlet` for our title label.
-
-> [action]
-![Nav Bar Title Label IBOutlet](assets/nav_bar_label_iboutlet.png)
->
-1. Locate your `ViewController.swift` file in your _Project Navigator_.
-1. Hold down the _Option_ button and click on your `ViewController.swift` file in the _Project Navigator_. You should see your `ViewController.swift` file open the _Assistant Editor_.
-1. (Optional) Use your Xcode toolbar to hide the _Utilities area_ to create more space in your project.
-1. Hold down the _Control_ (ctrl) button. Then, click and drag from the title label in your `Main.storyboard` to your `ViewController.swift` class in your _Assistant Editor_.
-1. After you let go, you should see a popup prompt to set details for your `IBOutlet`. Name your new `IBOutlet` the following: `titleLabel`.
-
-Next, we'll create an `IBAction` for our `UISwitch`. Remember `IBAction` can be triggered by `UIControlEvents`. In our case, we'll be able to trigger an event whenever the switch is trigggered.
-
-> [action]
-Let's create an `IBAction` for our switch:
-![Nav Bar Switch IBAction]
->
-To create our _IBAction_ in the video above:
-1. Locate your switch in your storyboard view controller.
-1. Hold down the _Control_ (ctrl) button. Then, click and drag from the switch in your `Main.storyboard` to your `ViewController.swift` class in your _Assistant Editor_.
-1. After you let go, you should see a popup prompt to set details for your `IBOutlet`. Using the _Connection_ dropdown, set the _Connection_ type to `Action`.
-1. Next, name your action `switchValueChanged` and set the _Type_ from `Any` to `UISwitch`.
-1. Finally, click `Connect` to create your new _IBAction_.
+<!-- break -->
 
 > [info]
-It's possible to abstract our navigation into a custom view object. In larger projects, creating custom view objects can make different view components re-usable and easier to use. However, we won't worry about this topic in this tutorial (to keep things simple.)
+After creating your switch's `IBAction`, you can close the _Assistant Editor_. If don't have a lot of screen space, it's helpful to open and close the _Assistant Editor_ as you need it.
 
-We've now finished building out the UI for our custom navigation bar. Now that you're done, your UI should look like this:
-
-![Nav Bar Finished Storyboard](assets/nav_bar_finished_storyboard.png)
+Let's give our new `IBAction` a test run to see that it's working correctly.
 
 > [action]
-Build and run your app. If everything has gone well, you should see the following:
+Open `ViewController.swift` from your _Project Navigator_ and add the following code in your `themeToggled` function:
 >
-![Nav Bar Finished Simulator](assets/nav_bar_finished_sim.png)
+```
+@IBAction func themeToggled(_ sender: UISwitch) {
+    if sender.isOn {
+        print("switch toggled on")
+    } else {
+        print("switch toggled off")
+    }
+}
+```
+
+After adding the code above we can test our `IBAction`.
+
+> [action]
+Build and run your project. Toggle your switch on and off a couple of times. If you look at your Xcode _Debugger area_ you should see the following print statements in your console each time you toggle your switch:
+>
+![Switch Console Print](assets/switch_console_print.png)
+
+We've finished implementing the UI and IB connections for our header view. Side-by-side, your `Main.storyboard` and `ViewController.swift` files should look like the following:
+
+![Finished Header Project Snapshot](assets/finished_header_project_snapshot.png)
+
+If you build and run your project, you app should look like:
+
+![Finished Header App Snapshot](assets/finished_header_app_snapshot.png)
+
+If you're looking for more practice, good news! We'll need to repeat the same steps again for our input card, output card and reset button views. Onwards!
+
+> [info]
+As you get more advanced, you'll learn about creating custom view objects that abstract all of it's subview components. Creating custom views makes your custom views re-usable and decouples your code. This is a little more advanced and out of the scope of this tutorial.
 
 # Input Card View
 
-Next, we'll move onto the same process for our input card view. First let's review our design for our input card:
+The next UI group we'll complete is our input card. Let's take another look at our design:
 
 ![Input Card Design](assets/input_card_design.png)
 
-In our input card view, we'll need to add two labels for each respective user input in addition to our text field and segmented control.
+For our input card, we'll need to add the following UI components:
 
-To add constraints to the subviews on our tip input card, we'll introduce a new layout tool called: `UIStackView`.
+![Tip Input Subviews](assets/tip_input_subviews.png)
 
-## Stack Views
+We'll need two labels, a text field, and a segmented control. Next, let's think about how to use _auto-layout_ to build our design.
 
-`UIStackView` allow us to create horizontal or vertical stacks of views. This can be especially useful for easily organizing the layout of elements without need to use a complex set of constraints.
+## Identifying Constraints
+
+To build our header view, we used constraints to create our dynamic view layout. This time, we'll introduce a new tool called `UIStackView`.
+
+### Stack Views
+
+`UIStackView` allows us to create horizontal or vertical stacks of views. This is especially useful for easily organizing rows or columns layouts.
+
+Let's take a look at what that looks like:
 
 ![Horizontal and Vertical Stack Views](assets/hor_and_ver_stack_views.png)
 
-For our case, we'll use stack views to easily group our input subview objects.
+In both cases, you can see that each stack view contains multiple subviews. The `UIStackView` automatically handles calculating the frame of each subview within it.
 
-Our first `UIStackView` will group together our first label and it's respective text field.
+We'll use stack views to easily layout our input subviews without having to add the constraints ourselves.
+
+Let's look at how we'll use a horizontal stack view to group our first row of views.
 
 ![Bill Amount Stack View](assets/bill_amount_stack_view.png)
 
-> [action]
-Create a stack view using your first label and it's respective text field.
->
-![Create Bill Amount Stack View](assets/create_bill_amount_stack_view.png)
->
-In the video above, we do the following:
-1. Drag a `UILabel` from the _Object Library_ onto the input card view.
-1. Drag a `UITextField` from the _Object Library_ onto the input card view.
-1. Make sure both objects are positioned side-by-side horizontally. The relative positioning will determine the _Axis_ of the stack view (horizontal or vertical.)
-1. Select your new label. While your label is still selected, hold down shift and click on the text field to select both subviews. 
-1. With both label and text field selected, click the `Embed In Stack` button to create a new stack view. The `Embed In Stack` button is in the bottom-right corner of the _Editor area_.
->
-Next, we'll need to configure some of our subview attributes.
->
-1. In your _Document Outline_, select your stack view. With your selected stack view, navigate to the _Attributes Inspector_ in the _Utilities area_. 
-1. In the _Attributes Inspector_, find the _Spacing_ field and change it's value from `0` to `30`.
->
-Finally, we'll set a width constraint for our text field.
->
-1. Expand the stack view object in your _Document Outline_ and select the `UITextField` object.
-1. With the text field selected, click the `Add New Constraints` button.
-1. Set a width constraint of `118` for the text field.
+As you can see, both our _Bill Amount Title Label_ and _Bill Amount Text Field_ are added to a single `UIStackView`. The purple area in the image above shows the stack view's frame.
 
-Great! We've finished our first stack view. We'll need to create a second on for our second grouping of user input.
+Similarly, we can use another horizontal stack view to layout our _Tip Percent Title_ and _Tip Segmented Control_ subviews. Let's look at what the would look like:
 
 ![Tip Percent Stack View](assets/tip_percent_stack_view.png)
 
+Each `UIStackView` calculates the frame of each subview within it. However, we'll still need to somehow define the frame of each `UIStackView`.
+
+To position both of our horizontal stack views in the center of our input card, we'll use our existing knowledge of stack views and constraints.
+
+First, we'll add a vertical stack view containing both horizontal stack views:
+
+![Outer Stack View](assets/outer_stack_view.png)
+
+Next, we'll use constraints to dynamically center the outer stack view:
+
+![Outer Stack View Constraints](assets/outer_stack_view_constraints.png)
+
+We add the following constraints to our outer stack view:
+
+- (Outer Stack View) Leading Edge 22pts from Super View (Input Card) Leading Edge
+- (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
+- (Outer Stack View) Center vertically aligned with Super View Center
+
+We'll need to add a few more width constraints to guarantee each view is of the correct width.
+
+We'll start by adding an equal width to both inner (horizontal) stack views:
+
+![Input Card Equal Widths Constraints](assets/input_card_equal_widths.png)
+
+In the image above, we add the following two constraints:
+
+- (Inner Top Stack View) Equal Width to Outer Stack View Width
+- (Inner Bottom Stack View) Equal Width to Outer Stack View Width
+
+As the name suggests, these two _Equal Widths_ constraints define the widths of the inner stack view to be the same as the outer stack view.
+
+Last, we need to add a width constraint for our `UITextField` and `UISegmentedControl` respectively.
+
+![Input Card Input Width Constraints](assets/input_card_input_width_constraints.png)
+
+Our width constraints:
+
+- (Bill Amount Text Field) 118pts Width
+- (Tip % Segmented Control) 173pts Width
+
+Whew! Those are the final constraints we'll need for our input card.
+
+As you can see, the combination of stack views and constraints give developers a lot of power to create complex UI layouts.
+
+Now that we've figured how we're going to implement the layout for our input card, let's start building!
+
+## Adding Constraints
+
+As you can see, the layout for our input card is pretty complex. To make things easier, we'll break our implementation into smaller steps.
+
+We'll start with the inner top stack view: the _Bill Amount Stack View_.
+
+### Bill Amount Stack View
+
+First, we'll need to add our stack view's sub-elements.
+
 > [action]
-Create a stack view using another label and a segmented control:
+In `Main.storyboard`, add an `UILabel` and `UITextField` to your view controller:
+>
+![Add Bill Amount Subviews](assets/add_bill_amount_subviews.png)
+>
+Step-by-step:
+>
+1. Drag a `UILabel` from the _Object Library_ and drop it on top of your input card view (`UIView`).
+1. Drag a `UITextField` from the _Object Library_ and position it next to your previous label.
+1. Make sure both subviews are positioned horizontally side-by-side. This will be important when we create our stack view.
+
+Next, let's create our first `UIStackView` from our two new views.
+
+> [action]
+Create the _Bill Amount Stack View_ using the label and textfield:
+>
+![Create Bill Amount Stack View](assets/create_bill_amount_stack_view.png)
+>
+1. Select your _Bill Amount Title Label_ (`UILabel`) in your storyboard.
+1. Hold down shift and click on your `UITextField`. This allows you to select multiple items at the same time.
+1. With both label and text field selected, click on the `Embed In Stack` button near the `Add New Constraints` button. It's located in the bottom right corner of your _Editor area_.
+1. (Optional) If you look in your _Document Outline_, you can see your new `UIStackView`. If you expand your stack view in your _Document Outline_ you can see each of the stack view's subviews.
+
+Your storyboard should look like the following:
+
+![Bill Amount Stack View Unstyled](assets/bill_amount_stack_view_unstyled.png)
+
+Needs some work huh? We won't worry about the styling yet. Let's move onto creating the inner bottom stack view.
+
+### Tip Percent Stack View
+
+First, we'll add the _Tip Percent Stack View's_ subviews.
+
+> [action]
+In `Main.storyboard`, add an `UILabel` and `UISegmentedControl` to your view controller:
+>
+![Add Tip Percent Subviews](assets/add_tip_percent_subviews.png)
+>
+Step-by-step:
+>
+1. Drag a `UILabel` from the _Object Library_ and drop it below the first label.
+1. Drag a `UISegmentedControl` from the _Object Library_ and position it so that it's next to the new label and below the text field.
+1. Make sure both label and segmented control are positioned horizontally side-by-side. In addition, make sure that they're positioned below the previous stack view.
+
+Now we'll move on to create our second inner stack view.
+
+> [action]
+Create the _Tip Percent Stack View_ using the label and segmented control:
 >
 ![Create Tip Percent Stack View](assets/create_tip_percent_stack_view.png)
 >
-In the video above, we do the following:
->
-1. Drag a `UILabel` from the _Object Library_ onto the output card view.
-1. Drag a `UISegmentedControl` from the _Object Library_ onto the output card view.
-1. Make sure both objects are positioned side-by-side horizontally. The relative positioning will determine the _Axis_ of the stack view (horizontal or vertical.)
-1. Select your _Tip Percent_ title label. While your label is still selected, hold down shift and click on the segmented control to select both subviews. 
-1. With both label and segmented control selected, click the `Embed In Stack` button to create a new stack view. The `Embed In Stack` button is in the bottom-right corner of the _Editor area_.
->
-Again, we'll need to configure our stack view _Spacing_.
->
-1. In your _Document Outline_, select your stack view. With your selected stack view, navigate to the _Attributes Inspector_ in the _Utilities area_. 
-1. In the _Attributes Inspector_, find the _Spacing_ field and change it's value from `0` to `30`.
->
-Also, we'll set a width constraint for our segmented control.
->
-1. Expand the stack view object in your _Document Outline_ and select the `UISegmentedControl` object.
-1. With the segmented control selected, click the `Add New Constraints` button.
-1. Set a width constraint of `173` for the segmented control.
+1. Select your _Tip Percent Title Label_ (`UILabel`) in your storyboard.
+1. Hold down shift and click on your `UISegmentedControl`. This allows you to select multiple items at the same time.
+1. With both label and segmented control selected, click on the `Embed In Stack` button near the `Add New Constraints` button. It's located in the bottom right corner of your _Editor area_.
+1. (Optional) If you look in your _Document Outline_, you can see your new `UIStackView`. If you expand your stack view in your _Document Outline_ you can see each of the stack view's subviews.
 
-Next, we'll create a vertical stack view from our two horizontal stack views.
+Your storyboard should look like the following:
+
+![Tip Percent Stack View Unstyled](assets/tip_percent_stack_view_unstyled.png)
+
+Both stack views should still be unstyled. We'll get to that once we finish adding all our constraints.
+
+Next, let's create our outer stack view.
+
+### Outer Stack View
 
 > [action]
-Create a vertical stack view using the two existing stack views: bill amount stack view and tip percent stack view.
+Create the _Outer Stack View_ using both inner (horizontal) stack views:
 >
-![Create Super Stack View](assets/create_super_stack_view.png)
+![Create Outer Stack View](assets/create_outer_stack_view.mov)
 >
-To create our vertical stack view we:
-1. Select both previous stack views in the _Document Outline_.
-1. With both horizontal stack views selected, click the `Embed In Stack` button to create a new stack view.
-1. (Optional) You can expand the super stack view to see the previous stack views and each of thier respective elements.
+Step-by-step:
 >
-Before moving on, set the _Spacing_ attribute on your new vertical stack view:
-1. Select your vertical stack view. 
-1. With your vertical stack view selected, open the _Attributes Inspector_.
-1. Locate and change the _Spacing_ attribute from `0` to `35`
+1. Collapse both inner stack views in the _Document Outline_.
+1. Select any inner stack view in the _Document Outline_.
+1. With the previous inner stack view selected, shift-click the other inner stack view to select both inner stack views simultaneously.
+1. With both inner stack views selected, click on the `Embed In Stack` button.
+1. (Optional) If you look in your _Document Outline_, you can see your new outer stack view and it's subviews.
 
-`UIStackView` is a useful tool that automatically generates layout constraints for each of the stack view's subviews.
+Your storyboard should now look like the following:
 
-<!-- TODO: maybe talk more about stack view, what it is, what it does and it's properties (subview array) -->
+![Outer Stack View Unstyled](assets/outer_stack_view_unstyled.png)
 
-Your tip input card view should now look like the following:
+With our inner and outer stack view constraints created, we'll need to add a few more constraints so _auto-layout_ can determine each stack view's frame.
 
-![Vertical Stack View Storyboard](assets/vertical_stack_view_storyboard.png)
+Let's start with remaining outer stack view constraints.
+
+> [action]
+Set the outer stack view's frame with the following constraints:
+>
+![Add Outer Stack View Constraints](assets/add_outer_stack_view_constraints.mov)
+>
+Step-by-step:
+>
+1. Select the outer stack view in the _Document Outline_.
+1. With your outer stack view selected, click the `Add New Constraints` button.
+1. Add the following two constraints using the `Add New Constraints` popup:
+    - (Outer Stack View) Leading Edge 22pts from Super View (Input Card) Leading Edge
+    - (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
+1. In the _Document Outline_, hold down control (ctrl) and click-drag from the outer stack view to it's super view (input card).
+1. In the popup, select `Center Vertically In Container` to create a new constraint. This will vertically align the outer stack view's center with it's super view's center.
+
+Next, we'll add our equal width constraints to make sure the width of our outer and inner stack views are equal.
+
+### Equal Widths Constraints
+
+> [action]
+Set equal widths constraints for each stack view:
+>
+![Add Stack View Equal Widths Constraints](assets/add_stack_view_equal_widths_constraints.mov)
+>
+Step-by-step:
+>
+1. Collapse both inner stack views in the _Document Outline_.
+1. Select the outer stack view in the _Document Outline_.
+1. With the outer stack view selected, shift-click the bottom inner stack view to select all three stack views simultaneously.
+1. With all stack views selected, click the `Add New Constraints` button.
+1. Select the `Equal Widths` checkbox and click `Add 2 Constraints` to create your equal width constraints.
+
+Our progress so far:
+
+![Stack View Equal Widths Unstyled](assets/stack_view_equal_widths_unstyled.png)
+
+Let's add our final width constraints for our text field and segmented control respectively.
+
+### Fixed Width Constraints
+
+> [action]
+Set a width constraint for the _Bill Amount Text Field_:
+>
+![Text Field Width Constraint](assets/text_field_width_constraint.mov)
+>
+Step-by-step:
+>
+1. Select the `UITextField` object in the _Document Outline_.
+1. With the text field selected, click the `Add New Constraints` button.
+1. Set a fixed width constraint of 118pts.
+
+Finally, we'll need to add a fixed width constraint for our `UISegmentedControl`. Try to see if you can implement it by yourself.
+
+> [challenge]
+Add a width constraint for your _Tip Percent Segmented Control_ object. Set the width to 173pts. If you have trouble or get stuck, look at the previous example of adding a width constraint to our text field.
+
+Check your solution below.
+
+> [solution]
+We set a width constraint for our _Tip Percent Segmented Control_ with the following:
+>
+![Segmented Control Width Constraint](assets/segmented_control_width_constraint.mov)
+>
+Step-by-step:
+>
+1. Select the `UISegmentedControl` object in the _Document Outline_.
+1. With the segmented control selected, click the `Add New Constraints` button.
+1. Set a fixed width constraint of 173pts.
+
+We've come a long ways from where we first started. We've finished adding all of our stack views and each view's constraints.
+
+![Input Card Finished Constraints Unstyled](assets/input_card_finished_constraints_unstyled.png)
+
+As you can see, our input card is starting to look more and more like our design. Next, we'll work on configuring our input card view attributes.
+
+## Configuring Attributes
+
+At this point, you should be familiar with setting the attributes of a storyboard object using _Interface Builder_.
+
+We'll quickly go through one together for review and let you do the rest on your own.
+
+### Input Card Background Color
+
+> [action]
+Set the _Input Card's_ background color to `tcDarkBlue`:
+>
+![Set Input Card Background Color](assets/set_input_card_bg_color.mov)
+>
+Step-by-step:
+>
+1. Select the input card view (`UIView`).
+1. Open the _Attributes Inspector_ in the _Utilities area_.
+1. Find the _Background_ attribute and use the blue dropdown button to change it's value from `White Color` to `tcDarkBlue`.
+
+Now it's your turn.
+
+> [challenge]
+Set each of the following attributes for each respective element:
+>
+**Outer Stack View:**
+>
+- _Spacing_: Change from `0` to `35`
+>
+**Bill Amount Title Label (Inner Top Stack View):**
+>
+- _Text_: Change from `Label` to `Bill Amount`
+- _Font_: Change from `System 17.0` to `System 20.0`
+- _Color_: Change from `Default` to `tcWhite`
+- _Alignment_: Change from `---` to `Left Aligned`
+>
+**Bill Amount Text Field (Inner Top Stack View):**
+>
+- _Alignment_: Change from `---` to `Center Aligned`
+- _Placeholder_: Change from empty to `$0.00`
+- _Correction_: Change from `Default` to `No`
+- _Keyboard Type_: Change from `Default` to `Decimal Pad`
+- _Keyboard Look_: Change from `Default` to `Light`
+- _Tint_: Change from `Default` to `tcHotPink`
+>
+**Tip Percent Title Label (Inner Bottom Stack View):**
+>
+- _Text_: Change from `Label` to `Tip %`
+- _Font_: Change from `System 17.0` to `System 20.0`
+- _Color_: Change from `Default` to `tcWhite`
+- _Alignment_: Change from `---` to `Left Aligned`
+>
+**Tip Percent Segmented Control (Inner Bottom Stack View):**
+>
+- _Segments_: Change from `2` to `3`
+- _Tint_: Change from `Default` to `tcHotPink`
+
+The last attribute we'll need to set is the title for each segment our segmented control.
+
+> [action]
+For each segment of your segmented control, set the title attribute to `15%`, `18%`, `20%` respectively:
+>
+![Set Segmented Control Titles](assets/set_segmented_control_titles.mov)
+
+Let's build and run our project to see our progress.
+
+![Input Card Styled](assets/input_card_styled.png)
+
+Bam! Our app matches our design (with exception of the rounded corners of course.)
 
 > [info]
-In this section, we used stack views to implement our layout. It's also possible to just use auto-layout constraints, but that would require a lot more work. Try to think of the constraints you'd need to use create the same layout. Stack views are especially useful turning layouts that require a complex set of constraints into groups of `UIStackView` objects that apply constraints to all of the subviews within the stack view automatically.
+Rounded corners (and shadows) make use of our view's layer property. We'll cover this later in this tutorial.
 
-Finally, we'll need to center our stack view without our input card view. We can use the set in container view constraint for this task.
-
-> [action]
-Center your vertical stack view within your input card view: ![Input Stack View With Constraints](assets/input_stack_view_w_constraints.png)
->
-In the video above, we add constraints to our input card (outer) stack view:
-1. Select the outer stack view in your _Document Outline_.
-1. With your outer stack view selected, add the following constraints:
-- (Outer Stack View) Leading 22pts from Super View (Input Card View) Leading Edge
-- (Outer Stack View) Trailing 22pts from Super View (Input Card View) Trailing Edge
-- (Outer Stack View) Center Vertically within Super View (Input Card View)
+Let's continue by creating the IB connections needed for our input card.
 
 ## Adding Our IB Connections
 
-Last, to complete this group, we'll also need to add our `IBOutlets` and `IBActions`.
+We've done this before with our header view. Let's get some more practice creating IB connections.
+
+We'll do another together for review.
+
+Let's create an `IBOutlet` for our input card (`UIView`.)
 
 > [action]
-Create the following `IBOutlets` and `IBAction` for each of the views in the tip input card:
-1. IBOutlet: Tip Input Card View (`UIView`) with name `inputCardView`.
-1. IBOutlet: Bill Amount Text Field (`UITextField`) with name `billAmountTextField`
-1. IBOutlet: Tip Percent Segmented Control (`UISegmentedControl`) with name `tipSegmentedControl`
-1. IBAction: For `Value Changed` event with method name `tipPercentageChanged`
+Create an `IBOutlet ` for the input card view:
+>
+![Create Input Card IBAction](assets/input_card_ibaction.mov)
+>
+Step-by-step:
+>
+1. Open `Main.storyboard` in your _Editor area_.
+1. Option-click on `ViewController.swift` in your _Project Navigator_ to open it in your _Assitant Editor_.
+1. (Optional) Hide the _Utilities area_ to make more screen space for the _Assistant Editor_.
+1. Select the input card view (`UIView`).
+1. With your input card selected, hold down control and click-drag from the input card to your `ViewController` class.
+1. In the popup, set the _Name_ field to `inputCardView` and click connect to create your new outlet.
 
-![Input Card IBConnections](assets/input_card_ib_connections.png)
+<!-- break -->
+
+> [challenge]
+Now it's your turn to practice. If you find yourself stuck, look back on how we implemented our previous `IBOutlets` to refresh your memory.
+>
+Create the following `IBOutlets`:
+>
+- `UITextField` named `billAmountTextField`
+- `UISegmentedControl` named `tipPercentSegmentedControl`
+
+Finally, we'll need to create an `IBAction` for our segmented control.
+
+> [challenge]
+Try implementing an `IBAction` for your `UISegmentedControl`. Set the _Name_ as `tipPercentChanged` and check that the _Event type_ is `Value Changed`. If you get stuck, you can look back in the tutorial or check the solution (only if you're really stuck!)
+
+<!-- break -->
+
+> [solution]
+Creating an `IBAction` is similar to creating an `IBOutlet`:
+>
+![Create Segmented Control IBAction](assets/segmented_control_ibaction.mov)
+>
+Step-by-step:
+1. Select your segmented control (`UISegmentedControl`) in the _Document Outline_.
+1. With your segmented control selected, hold down ctrl and click-drag from the segmented control in your _Document Outline_ to your `ViewController` class.
+1. You should see a popup for creating a new IB connection. In the popup, change the _Connection_ type from `Outlet` to `Action`.
+1. Set the name of our action as `tipPercentChanged`.
+1. Change the _Type_ property from `Any` to `UISegmentedControl`.
+1. Make sure the _Event_ property is set as `Value Changed`. If not, use the dropdown to set it to `Value Changed`.
+1. Click _Connect_ to create your new `IBAction`.
+
+When you're done, your storyboard and Swift code should look like the following:
+
+![Input Card IB Connections](assets/input_card_ib_connections.png)
+
+If everything looks right, on to the next! If something's off, let's go back in the tutorial and make sure we didn't accidentally skip any steps.
 
 <!-- TODO: add custom textfield, but don't do that here -->
 
 # Output Card View
 
-We'll implement our layout similar to the way we implemented our input card view subviews: with stack views.
+We've gone through the process of implementing each of our subviews for two of the four UI groups. We'll need to do it once again. This time we'll be more hands-off to give you practice doing it yourself.
+
+Let's take another look at our design:
+
+![Output Card Design](assets/output_card_design.png)
+
+For our output card, we'll need to add the following UI components:
+
+![Tip Output Subviews](assets/tip_output_subviews.png)
+
+We'll need to add four new labels. Next, let's think about how we'll layout our views.
+
+## Identifying Constraints
+
+Similar to our input card, we'll use a combination of stack views and constraints to implement our layout.
 
 ![Output Outer Stack View](assets/output_outer_stack_view.png)
 
+First, we'll have two horizontal stack views:
+
+- (Inner Top Stack View) _Tip Amount Title Label_ and _Tip Amount Label_
+- (Inner Bottom Stack View) _Total Amount Title Label_ and _Total Amount Label_
+
+Next, we'll create a outer (vertical) stack view from the two inner stack views.
+
+Just like the input card's outer stack view, we'll add the following constraints to set the frame of the outer stack view:
+
+- (Outer Stack View) Leading Edge 22pts from Super View (Output Card) Leading Edge
+- (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
+- (Outer Stack View) Center vertically aligned with Super View Center
+
+Finally, we'll add a few more constraints to make sure our subview widths are the correct size:
+
+- (Inner Top Stack View) Equal Width to Outer Stack View Width
+- (Inner Bottom Stack View) Equal Width to Outer Stack View Width
+- (Tip Amount Title Label) 110pts Width
+- (Total Amount Title Label) 110pts Width
+
+> [info]
+Look back on how we implemented the input card for more details if you're wondering why we've added any of the constraints.
+
+## Adding Constraints
+
+We've already had practice with using stack views and constraints. This time, try practicing on your own. If you get stuck, look back on how we implemented the layout for our input card.
+
 > [challenge]
-Implement the output card views and constraints based on the design about. If you get stuck, you can reference the previous steps or peek at the solution.
->
-Hint: It helps if you follow the process of: 
-1. Identify the view objects you'll need.
-1. Think about which constraints and/or stack views you'll need to use.
-1. Configure view or stack view attributes.
-1. Create the necessary IBOutlets and/or IBActions.
+Create the inner top stack view with two `UILabel` views.
 
 <!-- break -->
 
 > [solution]
-First let's create our stack views from the proper view elements: ![Output Stack Views](assets/ouput_outer_stack_view.png)
 >
-To create each of our stack views:
-1. Drag two labels from the _Object Library_ side-by-side.
-1. Select both labels and create a stack view using the `Embed In Stack` button.
-1. Select your stack view and set the _Spacing_ attribute to `30` using the _Attributes Inspector_.
-1. Repeat the steps above again to create another identical stack view right below.
-1. Next, use the _Document Outline_ to select both stack views. With both stack views selected, create a new stack view using the `Embed In Stack` button.
-1. Select the outer stack view and set the _Spacing_ attribute to `30` using the _Attributes Inspector_.
+1. Drag two `UILabel` objects side-by-side from the _Object Library_.
+1. Select both labels and create a horizontal stack view.
+
+We'll also need to create the inner bottom stack view.
+
+> [challenge]
+Create the inner bottom stack view with two `UILabel` views.
+
+<!-- break -->
+
+> [solution]
 >
-Next, we'll add constraints to position our outer stack view:
-![Output Outer Stack View With Constraints](assets/output_outer_stack_view_w_constraints.mov)
+1. Drag two `UILabel` objects side-by-side from the _Object Library_. Make sure both labels are below the previous stack view.
+1. Select both labels and create a horizontal stack view.
+
+Next, let's create our outer stack view.
+
+> [challenge]
+Create the _Outer Stack View_ using both inner (horizontal) stack views.
+
+<!-- break -->
+
+> [solution]
 >
-You can create your output card view with the following steps:
+1. Collapse and select both inner stack views in the _Document Outline_.
+1. With both inner stack views selected, click on the `Embed In Stack` button to create your outer stack view.
+
+Your storyboard should now look like the following:
+
+![Output Card Outer Stack View Unstyled](assets/output_card_outer_stack_view_unstyled.png)
+
+Next, let's add the constraints for our outer stack view.
+
+> [challenge]
+Set the outer stack view's frame with the following constraints:
+>
+- (Outer Stack View) Leading Edge 22pts from Super View (Output Card) Leading Edge
+- (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
+- (Outer Stack View) Center vertically aligned with Super View Center
+
+<!-- break -->
+
+> [solution]
+>
 1. Select the outer stack view in the _Document Outline_.
-1. With your outer stack view selected, add the following constraints:
-- (Outer Stack View) Leading 22pts from Super View (Input Card View) Leading Edge
-- (Outer Stack View) Trailing 22pts from Super View (Input Card View) Trailing Edge
-- (Outer Stack View) Center Vertically within Super View (Input Card View)
+1. With your outer stack view selected, click the `Add New Constraints` button.
+1. Add the following two constraints using the `Add New Constraints` popup:
+    - (Outer Stack View) Leading Edge 22pts from Super View (Input Card) Leading Edge
+    - (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
+1. In the _Document Outline_, hold down control (ctrl) and click-drag from the outer stack view to it's super view (input card).
+1. In the popup, select `Center Vertically In Container` to create a new constraint. This will vertically align the outer stack view's center with it's super view's center.
 
-<!-- TODO: Last, select each of the stack views and set equal width. -->
+To finish up, we'll add the remaining width constraints.
 
+> [challenge]
+Set each of the width constraints for each respective view:
+>
+- (Inner Top Stack View) Equal Width to Outer Stack View Width
+- (Inner Bottom Stack View) Equal Width to Outer Stack View Width
+- (Tip Amount Title Label) 110pts Width
+- (Total Amount Title Label) 110pts Width
 
-## Setting Label Attributes
+<!-- break -->
 
-We need to set the attributes for each respective label.
+> [solution]
+To create both equal width constraints:
+>
+1. Collapse both inner stack views in the _Document Outline_.
+1. Select the outer stack view in the _Document Outline_.
+1. With the outer stack view selected, shift-click the bottom inner stack view to select all three stack views simultaneously.
+1. With all stack views selected, click the `Add New Constraints` button.
+1. Select the `Equal Widths` checkbox and click `Add 2 Constraints` to create your equal width constraints.
+>
+To create each title label's fixed width constraint:
+1. Select the `UILabel` object in the _Document Outline_. Make sure you're selecting the correct label.
+1. With the label selected, click the `Add New Constraints` button.
+1. Set a fixed width constraint of 110pts.
+1. Repeat the previous steps for the remaining title label.
 
-For both of the title labels on the left side, set the following attributes:
-1. Font: `System Light 20.0`
-1. Alignment: `Left`
-1. Text: `Tip Amount` (1st Label) and `Total` (2nd Label)
-`
-For both of the on the right side, set the following attributes:
-1. Font: `System Medium 20.0`
-1. Alignment: `Right`
-1. Text: `$0.00`
+Whew! That was a lot of work in a short time. Nice job! When you're finished adding all stack views and view constraints your storyboard should look like the following:
 
-<!-- TODO: set horizontal content hugging priority for both right labels -->
+![Output Card Finished Constraints Unstyled](assets/output_card_finished_constraints_unstyled.png)
+
+Next, we'll configure our output card view attributes so that it matches our designs.
+
+## Configuring Attributes
+
+> [challenge]
+Set each of the following attributes for each respective element. Remember, if you get stuck you can look back to the previous steps in the tutorial for reference.
+>
+**Output Card View:**
+>
+- _Background_: Change from `White Color` to `tcWhite`
+>
+**Outer Stack View:**
+>
+- _Spacing_: Change from `0` to `35`
+>
+**Tip Amount Title Label (Inner Top Stack View):**
+>
+- _Text_: Change from `Label` to `Tip Amount`
+- _Font_: Change from `System 17.0` to `System Light 20.0`
+- _Color_: Change from `Default` to `tcCharcoal`
+- _Alignment_: Change from `---` to `Left Aligned`
+>
+**Tip Amount Label (Inner Top Stack View):**
+>
+- _Text_: Change from `Label` to `$0.00`
+- _Font_: Change from `System 17.0` to `System Medium 20.0`
+- _Color_: Change from `Default` to `tcBlack`
+- _Alignment_: Change from `---` to `Right Aligned`
+>
+**Total Amount Title Label (Inner Bottom Stack View):**
+>
+- _Text_: Change from `Label` to `Total`
+- _Font_: Change from `System 17.0` to `System Light 20.0`
+- _Color_: Change from `Default` to `tcCharcoal`
+- _Alignment_: Change from `---` to `Left Aligned`
+>
+**Total Amount Label (Inner Bottom Stack View):**
+>
+- _Text_: Change from `Label` to `$0.00`
+- _Font_: Change from `System 17.0` to `System Medium 20.0`
+- _Color_: Change from `Default` to `tcBlack`
+- _Alignment_: Change from `---` to `Right Aligned`
+
+Let's build and run our project to see our progress.
+
+![Output Card Styled](assets/output_card_styled.png)
+
+Our app is really starting to come along! Let's finish by creating the IB connections needed for our output card.
 
 ## Adding Our IB Connections
 
-Last, to complete this group, we'll also need to add our `IBOutlets` and `IBActions`.
+> [challenge]
+Add the following IB connections. If you find yourself stuck, look back on how we implemented our previous `IBOutlets` to refresh your memory.
+>
+Use the diagram below for reference:
+>
+![Tip Output Subviews](assets/tip_output_subviews.png)
+>
+Create the following `IBOutlets`:
+>
+- `UIView` named `outputCardView`
+- `UILabel` named `tipAmountTitleLabel`
+- `UILabel` named `tipAmountLabel`
+- `UILabel` named `totalAmountTitleLabel`
+- `UILabel` named `totalAmountLabel`
 
-> [action]
-Create the following `IBOutlets` and `IBAction` for each of the views in the tip output card:
-1. IBOutlet: Tip Output Card View (`UIView`) with name `outputCardView`.
-1. IBOutlet: Tip Amount Title Label (`UILabel`) with name `tipAmountTitleLabel`
-1. IBOutlet: Tip Amount Label (`UILabel`) with name `tipAmountLabel`
-1. IBOutlet: Total Title Label (`UILabel`) with name `totalTitleLabel`
-1. IBOutlet: Total Cost Label (`UILabel`) with name `totalCostLabel`
+When you're done, your storyboard and Swift code should look like the following:
 
-When finished, build and run your app. This is what your app should look like this far.
-
-![Output Card With Style](assets/output_card_w_style.png)
+![Output Card IB Connections](assets/output_card_ib_connections.png)
 
 # Reset Button
 
-We won't need to add any subviews to our reset button. Instead, we'll just need to configure some of our button's attirbutes using the _Attributes Inspector_ and create it's respective IB connections.
+Let's finish our last UI group: the reset button. Unlike the other UI groups, we won't need to add any subviews or extra constraints. We'll just need to styling our button and add it's IB connections.
 
-First, let's configure our button's style.
+## Configuring Attributes
 
-> [action]
-Select the button in your storyboard and open the _Attributes Inspector_. Change the following attributes:
-    - Type: `Custom`
-    - Background Color: `tcDarkBlue`
-    - Font: `System Bold 13.0`
-    - Title: `RESET`
+> [challenge]
+You know the drill. Set each of the following attributes for the reset button:
+>
+**Output Card View:**
+>
+- _Type_: Change from `System` to `Custom`
+- _Title_: Change from `Button` to `RESET`
+- _Font_: Change from `System 15.0` to `System Bold 13.0`
+- _Text Color_: Change from `Default` to `tcWhite`
+
+Your reset button should look like the following when you're done:
+
+![Reset Button Styled](assets/reset_button_styled.png)
 
 ## Creating IB Connections
 
-Next, we'll need to create our IB connections.
+Last, we'll need to add the button's IB connections.
+
+> [challenge]
+Use the _Assistant Editor_ to add the following IB connections to your `ViewController` class:
+>
+1. Create an `IBOutlet` for the reset button named `resetButton`.
+1. Create an `IBAction` for the reset button with the name `resetButtonTapped` with _Event type_ of `Touch Up Inside`.
+
+When you're done, your storyboard and view controller source code should look like the following:
+
+![Reset Button IB Connections](assets/reset_button_ib_connections.png)
+
+### Testing Our IBAction
+
+Let's make sure that our `IBAction` is working as expected.
 
 > [action]
-Create the following `IBOutlets` and `IBAction` for your reset button:
-1. IBOutlet: Reset Button (`UIButton`) with name `resetButton`
-1. IBAction: For `Touch Up Inside` event with method name `resetButtonTapped`
-
-Now let's test that it's working. 
-
-> [action]
-Put a print statement in your `resetButtonTapped` function to test that it's working:
+Add a print statement in your `resetButtonTapped` function to test that it's working:
 >
 ```
 @IBAction func resetButtonTapped(_ sender: UIButton) {
@@ -403,23 +1001,10 @@ Put a print statement in your `resetButtonTapped` function to test that it's wor
 }
 ```
 
-Build and run. If working successfully, when you tap the reset button, you should be able to see the following:
+Build and run your project. Tap the reset button a couple of times and verify that your print statement is being output to the debug console. Each time you tap the reset button, you should see the following:
 
-![Reset Button Console](assets/reset_button_console.png)
+![Reset Button Debug Print](assets/reset_button_debug_print.png)
 
 # Conclusion
 
-Although we're not completely done with our styling, we'll first implement our logic for our tip calculator. In this section, we implemented Let's move onto the next section.
-
-<!-- below is scaffolding; remove before production -->
-
-# Dealing Layers (maybe move this to another section)
-## shadows
-## rounded corners
-
-
-maybe move this to next section
-  - add shadow to nav bar
-  - add rounded corners to cards and button
-
-
+That's a wrap! We've learned a ton about implementing complex layouts with _auto-layout_, constraints and stack views. In the process, we've gotten a lot of practice and implemented the majority of our UI. In the next section, we'll work on implementing the logic for our tip calculator.
