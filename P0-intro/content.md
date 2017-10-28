@@ -29,7 +29,7 @@ If you're a complete beginner and looking for your first introduction to iOS dev
 
 At the end of this tutorial, you'll have built your own tip calculator!
 
-<!-- TODO: insert image here -->
+![Light Flow](assets/light_flow.png)
 
 Your tip calculator will be able to:
 
