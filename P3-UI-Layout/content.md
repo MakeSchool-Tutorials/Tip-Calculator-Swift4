@@ -9,31 +9,31 @@ We'll start building our app by implementing the UI in _Interface Builder_. For 
 
 # Creating Views
 
-We'll get started by creating our custom top (navigation) bar with a `UIView`.
+We'll get started by creating our header view with a `UIView`.
 
 > [info]
-`UIKit` has it's own top bar called the `UINavigationBar`. To keep things simple, we'll start from scratch and create our own custom navigation bar. From this point forward, when this tutorial refers to `navigation bar`, it's referring to the custom top bar.
+`UIKit` has it's own header-like bar called the `UINavigationBar`. To keep things simple, we'll start from scratch and create our own header view instead of using iOS's `UINavigationBar`. If this tutorial refers to `navigation bar`, it's referring to our custom header view.
 
 <!-- break -->
 
 > [action]
 Open `Main.storyboard` from your project navigator. You should see your single view controller. ![Starting Storyboard](assets/starting_storyboard.png)
 
-Next, we'll add a `UIView` and reposition/resize it to be our custom navigation bar.
+Next, we'll add a `UIView` and reposition/resize it to be our header view.
 
 > [action]
-Create a custom navigation bar by dragging an `UIView` object from the _Object Library_ to the top of the view controller. Don't worry too much about the perfect size and position for now. We'll handle that later.
+Create a header view by dragging an `UIView` object from the _Object Library_ to the top of the view controller. Don't worry too much about the perfect size and position for now. We'll handle that later.
 >
-![Add Custom Navigation Bar](assets/add_custom_nav_bar.mov)
+![Add Custom Header View](assets/add_custom_nav_bar.mov)
 
-The new `UIView` object that we just added is going to be our custom navigation bar. We'll add other subviews onto it later.
+The new `UIView` object that we just added is going to be our custom header view. We'll add other subviews onto it later.
 
-You might notice, that our custom navigation bar is a little hard to see because it's the same color as the view controller's root view: white. Let's change the color of our root view to add some contrast.
+You might notice, that our header view is a little hard to see because it's the same color as the view controller's root view: white. Let's change the color of our root view to add some contrast.
 
 > [action]
 Change the view controller's root view to off-white:
 >
-1. Select the view controller's root view by either clicking on it in your storyboard or selecting it in the document outline. If you don't see it in the _Document Outline_, you might have to expand the `View Controller Scene` tree. Make sure you're not selecting the custom navigation bar view by accident. ![Select Root View](assets/select_root_view.png)
+1. Select the view controller's root view by either clicking on it in your storyboard or selecting it in the document outline. If you don't see it in the _Document Outline_, you might have to expand the `View Controller Scene` tree. Make sure you're not selecting the header view by accident. ![Select Root View](assets/select_root_view.png)
 1. With the root view still selected, open the _Attributes Inspector_ in the _Utilities area_. ![Open Attributes Inspector](assets/open_attributes_inspector.png)
 1. Next, click on the blue dropdown button beside the active color for the `Background Color` field. ![Click Background Color Dropdown](assets/click_bg_color_dropdown.png)
 1. Finally, select the `Off-White` color under the _Named Colors_ subheader in the dropdown menu. ![Select Off-White Background Color](assets/select_off_white.png)
@@ -73,32 +73,32 @@ At some point, you'll come across another view property named `bounds` that's al
 >
 ![Frame vs Bounds](assets/frame_vs_bounds.png)
 
-With our new knowledge, let's properly re-position and re-size our custom navigation bar.
+With our new knowledge, let's properly re-position and re-size our header view.
 
-## Setting The Navigation Bar Rect
+## Setting The Header View Rect
 
-Looking back at our design, we can determine the `CGRect` of our custom navigation bar.
+Looking back at our design, we can determine the `CGRect` of our header view.
 
 > [challenge]
-What should the `CGRect` (x, y, width, height) of our navigation bar be?
+What should the `CGRect` (x, y, width, height) of our header view be?
 >
-![Navigation Bar Dimensions](assets/nav_bar_dimensions.png)
+![Header View Dimensions](assets/nav_bar_dimensions.png)
 
 <!-- break -->
 
 > [solution]
-The _frame_ of our navigation bar is (0, 0, 375, 105).
+The _frame_ of our header view is (0, 0, 375, 105).
 
-Let's change our current nav (navigation) bar's frame in storyboard.
+Let's change our current header view's frame in storyboard.
 
 > [action]
 In `Main.storyboard` perform the following:
 >
-1. Select the custom navigation bar view (UIView) in _Interface Builder_
-1. With the nav bar selected, open the _Size Inspector_ in the _Utilities area_.
+1. Select the header view (UIView) in _Interface Builder_
+1. With the header view selected, open the _Size Inspector_ in the _Utilities area_.
 1. Find the view's `Frame Rectangle` fields. Change the X, Y, Width and Height values in the size inspector to the value of the rect in the solution above.
 >
-![Fixed Navigation Bar](assets/fix_nav_bar_rect.png)
+![Fixed Header View](assets/fix_nav_bar_rect.png)
 
 Let's see if our changes worked!
 
@@ -107,9 +107,9 @@ Build and run the app in the iPhone 8 simulator by clicking the run button in th
 >
 ![Click Run](assets/click_run.png)
 
-You should see the custom navigation bar against your off-white root view in the simulator. Nothing fancy yet!
+You should see the custom header view against your off-white root view in the simulator. Nothing fancy yet!
 
-![Fixed Nav Bar Simulator](assets/fixed_nav_bar_simulator.png)
+![Fixed Header Simulator](assets/fixed_nav_bar_simulator.png)
 
 But what happens if we run our app in a simulator with a different size screen?
 
@@ -117,11 +117,11 @@ But what happens if we run our app in a simulator with a different size screen?
 
 Let's revisit our previous diagram explaining a view's frame within the iOS coordinate system.
 
-![Nav Bar Dimensions](assets/nav_bar_dimensions.png)
+![Header View Dimensions](assets/nav_bar_dimensions.png)
 
 What would happen if our app was ran across multiple different screen sizes?
 
-![Fixed Nav Bar With Different Screen Sizes](assets/fixed_nav_bar_diff_screens.png)
+![Fixed Header View With Different Screen Sizes](assets/fixed_nav_bar_diff_screens.png)
 
 As you can see, the frame of the `UIView` needs to be different for each device with a different screen size.
 
@@ -167,30 +167,30 @@ Auto-layout and constraints give us an easy way to build dynamic view layouts fo
 
 ## Determining Constraints
 
-Let's set our first constraints by changing our custom navigation bar in _Interface Builder_ to make use of constraints.
+Let's set our first constraints by changing our header view in _Interface Builder_ to make use of constraints.
 
 > [challenge]
-What constraints should we set for our custom navigation bar?
+What constraints should we set for our header view? ![Header View Dimensions](assets/nav_bar_dimensions.png)
 
-<!-- TODO: show image of custom navigation bar with size and position -->
+<!-- break -->
 
 > [solution]
-Our nav bar would have the following constraints:
+Our header view would have the following constraints:
 >
 - Top: 0 from Super View (Root View) Top Edge
 - Leading (Left): 0 from Super View (Root View) Leading Edge
 - Trailing (Right): 0 from Super View (Root View) Trailing Edge
 - Height: 105 fixed constant
 
-Looks pretty good. Let's look at our navigation bar with these constraints across each device:
+Looks pretty good. Let's look at our header view with these constraints across each device:
 
-![Nav Bar With Fixed Height Constraint](assets/nav_bar_w_fixed_height_constraint.png)
+![Header View With Fixed Height Constraint](assets/nav_bar_w_fixed_height_constraint.png)
 
-Hold on. Not so fast. With the introduction of the iPhone X, the sensor housing (the top notch) requires to add some additional thought to our custom navigation bar's frame.
+Hold on. Not so fast. With the introduction of the iPhone X, the sensor housing (the top notch) requires to add some additional thought to our header view frame.
 
-![Nav Bar Fixed Height Problem](assets/nav_bar_fixed_height_problem.png)
+![Header View Fixed Height Problem](assets/nav_bar_fixed_height_problem.png)
 
-Because the top notch, we'll need to make calculate the navigation bar's height based on the bottom of the top notch for the iPhone X.
+Because the top notch, we'll need to make calculate the header view's height based on the bottom of the top notch for the iPhone X.
 
 To help us handle this, Apple has provided us with the _Safe Area_.
 
@@ -200,11 +200,11 @@ The _Safe Area_ provides us with valuable layout information to help us properly
 
 ![Safe Area](assets/safe_area.png)
 
-Revise our original constraints, we'll need to replace our height constraint with a bottom constraint that is -85 from the top _Safe Area_. Now our navigation dynamically calculate it's layout correctly across each device.
+Revise our original constraints, we'll need to replace our height constraint with a bottom constraint that is -85 from the top _Safe Area_. Now our header view dynamically calculate it's layout correctly across each device.
 
-![Nav Bar Correct Height](assets/nav_bar_correct_height.png)
+![Header View Correct Height](assets/nav_bar_correct_height.png)
 
-It might be a little hard to see, but the height of the nav bar is slightly bigger for the iPhone X because of it's top notch.
+It might be a little hard to see, but the height of the header view is slightly bigger for the iPhone X because of it's top notch.
 
 With our correct constraints, let's set them in _Interface Builder_.
 
@@ -213,127 +213,118 @@ With our correct constraints, let's set them in _Interface Builder_.
 Let's set our constraints in _Interface Builder_. First we'll start by adding our top, leading (left) and trailing (right) constraints.
 
 > [action]
-Open `Main.storyboard` from your _Project Navigator_. Select your custom navigation bar view (`UIView`) and add the following constraints:
+Open `Main.storyboard` from your _Project Navigator_. Select your header view (`UIView`) and add the following constraints:
 >
-![Set Nav Bar Edge Constraints](assets/edge_constraints_nav_bar.mov)
+![Set Header View Edge Constraints](assets/edge_constraints_nav_bar.mov)
 >
-With our nav bar view selected, we click on the _Add New Constraints_ button and set each of the edge constraints:
+With our header view selected, we click on the _Add New Constraints_ button and set each of the edge constraints:
 >
-- _Top Edge_ of navigation bar 0pts to _Top Edge_ of root view
-- _Leading (Left) Edge_ of navigation bar 0pts to _Leading (Left) Edge_ of root view
-- _Trailing (Right) Edge_ of navigation bar 0pts to _Trailing (Right) Edge_ of root view
+- _Top Edge_ of header view 0pts to _Top Edge_ of root view
+- _Leading (Left) Edge_ of header view 0pts to _Leading (Left) Edge_ of root view
+- _Trailing (Right) Edge_ of header view 0pts to _Trailing (Right) Edge_ of root view
 
-Currently, our navigation bar has a incomplete set of constraints. We haven't added a constraint to define the view's height yet. If we run the app now, we won't see our navigation bar because it's height will be 0. Xcode and _Interface Builder_ try to warn us of this:
+Currently, our header view has a incomplete set of constraints. We haven't added a constraint to define the view's height yet. If we run the app now, we won't see our header view because it's height will be 0. Xcode and _Interface Builder_ try to warn us of this:
 
 ![Constraint Errors](assets/constraint_errors.png)
 
 You'll notice above:
 
 1. a red error arrow that lists missing constraints in your document outline
-1. red highlights around the custom nav bar view in your storyboard
+1. red highlights around the custom header view in your storyboard
 1. a warning in the Xcode project status bar
 
-Let's add the final constraint to define the nav bar's height.
+Let's add the final constraint to define the header view's height.
 
 > [action]
-Add a constraint from the bottom edge of the nav bar to the top edge of the _Safe Area_: ![Nav Bar Height Constraint](assets/nav_bar_safe_area_constraint.mov)
+Add a constraint from the bottom edge of the header view to the top edge of the _Safe Area_: ![Header View Height Constraint](assets/nav_bar_safe_area_constraint.mov)
 >
 To add the constraint in the video, follow the steps below:
 >
-1. Select the navigation bar view (`UIView`) in the _Document Outline_.
-1. With the nav bar selected, hold down the control button (ctrl) and click-drag from the navigation bar view to the _Safe Area_ view in your _Document Outline_.
-1. Once you let go, you'll see a pop-up with the options to add a new constraint. Select _Vertical Spacing_. This will set a vertical spacing constraint from the top edge of our navigation bar to the top edge of the _Safe Area_.
+1. Select the header view (`UIView`) in the _Document Outline_.
+1. With the header view selected, hold down the control button (ctrl) and click-drag from the header view to the _Safe Area_ view in your _Document Outline_.
+1. Once you let go, you'll see a pop-up with the options to add a new constraint. Select _Vertical Spacing_. This will set a vertical spacing constraint from the top edge of our header view to the top edge of the _Safe Area_.
 1. (Optional) If you'd like to adjust the constraint, you can click on it and adjust it's values in the _Size Inspector_.
 
-Congrats, we've added our first set of constraints to our navigation bar. Try running your app in multiple different simulators and see if our navigation bar properly adjusts it's frame to each device.
+Congrats, we've added our first set of constraints to our header view. Try running your app in multiple different simulators and see if our header view properly adjusts it's frame to each device.
 
-![Auto-Layout Navigation Bar Multiple Devices](assets/dynamic_nav_bar_diff_devices.png)
+![Auto-Layout Header View Multiple Devices](assets/dynamic_nav_bar_diff_devices.png)
 
 It works! Next, we'll dive deeper into _auto-layout_ and the different kind of constraints that are available to use.
 
 # Different Types of Constraints
 
-To properly setup constraints for our navigation bar, we've only used one type of constraints but there are many different types of constraints that you can use to build complex UI layouts. Before setting up constraints for any of our other fews, let's look at common constraints we can use to build dynamic layouts with _auto-layout_.
+To properly setup constraints for our header view, we've only used one type of constraints but there are many different types of constraints that you can use to build complex UI layouts. Before setting up constraints for any of our other fews, let's look at common constraints we can use to build dynamic layouts with _auto-layout_.
 
 ## Relative Position
 
-First, let's review our relative positioning constraint. Relative positioning allows use to position a view relative to another view. That means we can place a view 10 points (iOS distance measuring unit) below the top of side of another view or even -3050 pt. from the leading (left) side of the root view.
+First, let's review our relative positioning constraint. Relative positioning allows use to position a view relative to another view. For example, we can create a constraint that positions the blue view 45pts from the trailing (right) side of the red view:
 
-<!-- TODO: show image of relative positioning from the example above -->
+![Relative Positioning Positive](assets/relative_positioning_positive.png)
 
-Positive and negative measurement denote which direction the constraint is measuring in, you'll need to keep in mind the iOS coordinate system.
+Positive and negative values (relative to the iOS coordinate system) denote the direction of the constraint. For example, we can instead add a constraint that positions the blue view -75pts from the trailing (right) side of the red view:
 
-<!-- TODO: image of iOS coordinate system and how it determines directon of constraint -->
+![Relative Positioning Negative](assets/relative_positioning_negative.png)
 
-When you're setting your relative positioning constraints, make sure you're aware of what they're relative to. It's a very common mistake to accidentally set constraints relative to something you didn't mean to. For example, you can set a view 10 pt. below another view:
+> [info]
+When you're creating relative positioning constraints, you'll need to keep in mind which view's edge the constraint is starting from, the other view's edge where the constraint is ending at and the position or negative value (direction) of the constraint.
 
-<!-- TODO: image of a view 10 points below another -->
+When you're setting your relative positioning constraints, make sure you're aware of what they're relative to. For example, let's set the blue view 20pts below the red view:
 
-But did you set it 10pts below the correct view?
+![Relative Positioning Top Edge](assets/relative_positioning_top_edge.png)
 
-<!-- TODO: image of a view 10 points below another view -->
+But is that what we wanted? In the case above, we set our blue view to have a constraint of 20pts below the red view but relative to the wrong edge of the red view!
 
-And did you mean to set it 10pts below the top or bottom edge of the other view:
+This is probably what we really intended:
 
-<!-- TODO: two side by side images of one view below the top side /bottom side of a single view -->
+![Relative Positioning Bottom Edge](assets/relative_positioning_bottom_edge.png)
 
+As you can see, it's a very common mistake to accidentally set constraints relative to the wrong edge or sometimes even the wrong view!
+
+> [info]
 It's also important to take the _Safe Area_ into consideration when setting a view relative to the root view. If you're setting the top edge of your view to the top edge of the root view, you'll need to verify that you don't accidentally set it to the top edge of the _Safe Area_ instead, or vice versa.
-
 
 ## Constant Size (Height or Width)
 
-As we briefly discussed earlier, it's also possible to set fixed constant constraints. These are for setting the width or height of an object to a fixed constant. For example, we can set a view to have a relative positioning constraint from the top and leading edges of the root view to 10. Then we can give our view a fixed width and height of 100 pts.
+As we briefly discussed earlier, it's also possible to set fixed constant constraints. These are used to set a fixed width or height of a view. For example, we can give a view a fixed width and height of 100pts:
 
-<!-- TODO: show example of view being fixed in height and position across multiple screen sizes -->
+![Fixed Size Constraints](assets/fixed_size_constraints.png)
 
-If you run into a situation where you've added your constraints but don't see your view, you might have forgotten to add certain constraints. For the previous example, if we forgot to add the height constraint, our view would look like this:
+In this case, the red view will always remain the same size (100x100) regardless of changing screen sizes.
 
-<!-- TODO: show view that doesn't show up because height constraint is 0 -->
-
-If a view doesn't have the proper constraints set up, it's height or width value could be 0. Or it's frame could be off of the screen.
-
-<!-- TODO: show examples of all of the incorrect cases; off the screen x 2; width is 0; height is 0 -->
+> [info]
+If you run into a situation where you've added your constraints but don't see your view, you might have forgotten to add certain constraints. Remember, each view's frame must be able to be determined by it's auto-layout constraints.
+>
+In the previous example, if we forgot to add the height constraint, our view wouldn't show up because the height of it's frame is 0.
 
 ## Center (With Offset) In Superview
 
-Another positioning constraint we can use is centering within a superview. For example, if we wanted to create a button with a fixed size, we could set the following constraints:
+Another positioning constraint we can use is aligning center axes vertically or horizontally. For example, we can create a constraint that vertically aligns the blue view's center to red views:
 
-1. Bottom: 10pt from bottom edge of superview
-1. Width: 250pt
-1. Height: 60pt
-1. Center In Superview
+![Centers Vertically Aligned](assets/centers_vertically_aligned.png)
 
-Our button would look like the following across a range of devices:
+Or we horizontally align the two views:
 
-<!-- TODO: Show button across different devices -->
+![Centers Horizontally Aligned](assets/centers_horizontally_aligned.png)
 
 You can also choose to offset (positive or negative to determine direction) from the superview:
 
-<!-- TODO: show image with side by side positive and negative centering offsets -->
+![Centers Vertically Aligned Offset](assets/centers_vertically_aligned_offset.png)
 
 ## Aspect Ratio
 
-Aspect ratio constraints are also possible, where you can determine if the height is a ratio of the width. This can be useful if you want to make sure the view is always a square (1:1 aspect ratio) or if you decide that the height will always be 1/2 of the width (1:2 aspect ratio.)
+Aspect ratio constraints are also available. You can set the height to be a ratio of the width or vice versa. This can be useful if you want to make sure the view is always a square (1:1 aspect ratio) or if you decide that the height will always be 1/2 of the width (1:2 aspect ratio.)
 
-If our constraints are the following:
+In the following example, we set the aspect ratio to (1:3) where the height is a third of the width:
 
-1. Top: 25pt from top edge of root view
-1. Center In Superview (root view)
-1. Aspect Ratio 1:1
-
-<!-- TODO: show image of square across different devices -->
+![Aspect Ratio](assets/aspect_ratio.png)
 
 ## Equal (Ratio) To Other Constraint
 
-The last constraint that we'll cover is the ability to set constraints relative to the ratio of another constraint. For example, we're able to set the width constraint of a view to be half of another view.
+The last constraint that we'll cover is the ability to set constraints relative to the ratio of another constraint. This is useful when we want certain views to size themselves relative to other views. For example, we can set the height of the blue view to be (1:2), or half, of the red view:
 
-We can set the constraints as follows:
+![Relative Rati0](assets/relative_ratio.png)
 
-1.
-1.
-1.
-
-<!-- TODO: image of constraints relative to another -->
+In our tip calculator, we'll use this constraint to size the input and output cards to be of equal heights.
 
 # Setting Auto-Layout For Our View Grouping
 
@@ -347,9 +338,9 @@ Next, we're going to setup the main views (and their constraints) for each UI gr
 
 ## Implementing Our Constraints
 
-We've already finished implementing the foundation for our custom navigation bar. We'll repeat a similar process for each of our remaining UI groups.
+We've already finished implementing the foundation for our header view. We'll repeat a similar process for each of our remaining UI groups.
 
-With our nav bar complete, let's move on to implementing the tip input card.
+With our header complete, let's move on to implementing the tip input card.
 
 ### Input Card View
 
@@ -363,7 +354,7 @@ Step by step:
 1. Drag a `UIView` from the _Object Library_ onto the root view.
 1. Click the `Add New Constraints` button at the bottom right corner of the _Interface Builder Editor_ window.
 1. Set the following constraints:
-    - (Input Card) _Top Edge_ 24pts from Nav Bar _Bottom Edge_
+    - (Input Card) _Top Edge_ 24pts from Header View _Bottom Edge_
     - (Input Card) _Leading (Left) Edge_ 15pts from Super View (Root View) _Leading (Left) Edge_
     - (Input Card) _Trailing (Right) Edge_ 15pts from Super View _Trailing (Right) Edge_
 

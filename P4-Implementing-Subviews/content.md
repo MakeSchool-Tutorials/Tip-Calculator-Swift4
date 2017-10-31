@@ -9,7 +9,7 @@ In the previous section, we implemented a skeleton of each of the UI groups in s
 
 In this section, we'll finish building each of our _view groups_:
 
-1. Custom Navigation Bar
+1. Header
 1. Tip Input Card
 1. Tip Output Card
 1. Reset Button
@@ -21,25 +21,25 @@ To finish implementing each of our _view groups_, we'll need to the process belo
 1. Configure each subview's attributes to match the designs
 1. Create the appropriate `IBOutlets` and `IBActions`
 
-Let's start by finishing the first UI group: our custom navigation bar.
+Let's start by finishing the first UI group: our header.
 
-# Custom Navigation Bar
+# Header View
 
-In our previous step, we've already added a base view (`UIView`) for our nav bar. In it's current state, our nav bar looks like the following:
+In our previous step, we've already added a base view (`UIView`) for our header. In it's current state, our header view looks like the following:
 
-![Current Nav Bar](assets/current_nav_bar.png)
+![Current Header View](assets/current_nav_bar.png)
 
-To finish implementing our nav bar, we'll need to identify and add the remaining subviews.
+To finish implementing our header view, we'll need to identify and add the remaining subviews.
 
 > [challenge]
-Using the design below, can you identify the views we'll need to finish building the UI for our navigation bar?
+Using the design below, can you identify the views we'll need to finish building the UI for our header view?
 >
-![Nav Bar Design](assets/nav_bar_design.png)
+![Header View Design](assets/nav_bar_design.png)
 
 <!-- break -->
 
 > [solution]
-We'll need the following view objects to build our nav bar:
+We'll need the following view objects to build our header:
 >
 - `UILabel`: title label
 - `UISwitch`: theme color switch
@@ -57,18 +57,18 @@ Using the design below, identify each of the _auto-layout_ constraints for your 
 >
 Hint: the red area represents the frame of the label.
 >
-![Nav Bar Label Dimensions](assets/nav_bar_label_dimensions.png)
+![Header View Label Dimensions](assets/nav_bar_label_dimensions.png)
 
 Check your answer with the solution below.
 
 > [solution]
 Based on our design, our label will need the following constraints:
 >
-![Nav Bar Label Constraints](assets/nav_bar_label_constraints.png)
+![Header View Label Constraints](assets/nav_bar_label_constraints.png)
 >
 **Constraints**:
 >
-- (Label) Leading Edge 24pts from Super View (Nav Bar) Leading Edge
+- (Label) Leading Edge 24pts from Super View (Header View) Leading Edge
 - (Label) Bottom Edge 0pts from Super View Bottom Edge
 - (Label) Top Edge 0pts from Safe Area Top Edge
 
@@ -79,11 +79,11 @@ After identifying our constraints, we can use _Interface Builder_ to add our new
 > [action]
 Open `Main.storyboard` and implement your title label and it's constraints:
 >
-![Add Nav Bar Label With Constraints](assets/add_nav_bar_label_w_constraints.mov)
+![Add Header View Label With Constraints](assets/add_nav_bar_label_w_constraints.mov)
 >
 Step-by-step:
 >
-1. Drag a `UILabel` from the _Object Library_ and drop it on top of your nav bar view (`UIView`).
+1. Drag a `UILabel` from the _Object Library_ and drop it on top of your header view (`UIView`).
 1. With your new `UILabel` selected, click the `Add New Constraints` button.
 1. Add the following first two constraints using the `Add New Constraints` popup:
     - (Label) Leading Edge 24pts from Super View Leading Edge
@@ -101,9 +101,9 @@ Step-by-step:
 > [info]
 Identifying and setting the _auto-layout_ constraints for each view object can be tricky for newbies. If you find yourself struggling, slow down and try to break down your layout problem into smaller chunks. As you continue to practice, working with constraints will become easier and easier.
 
-Nice! We've added a title label to our nav bar. If you build and run your project, you'll see the following:
+Nice! We've added a title label to our header. If you build and run your project, you'll see the following:
 
-![Nav Bar Title Label Without Styling](assets/nav_bar_label_no_styling.png)
+![Header Title Label Without Styling](assets/nav_bar_label_no_styling.png)
 
 But... it's still off. Our title label still doesn't look like our final design.
 
@@ -112,15 +112,15 @@ That's because we'll need to use the _Attribute Inspector_ to set the `UILabel` 
 ### Configuring Attributes
 
 > [action]
-In `Main.storyboard`, select your nav bar's title label. Navigate to the _Attributes Inspector_ in the _Utilities area_ and change the following attributes:
+In `Main.storyboard`, select your header view's title label. Navigate to the _Attributes Inspector_ in the _Utilities area_ and change the following attributes:
 >
-- _Text_: Change from `Label` to `Tip Calculator` ![Set Nav Bar Label Text](assets/set_nav_bar_label_text.png)
-- _Font_: Change from `System 17.0` to `System Bold 24.0` ![Set Nav Bar Label Font](assets/set_nav_bar_label_font.png)
-- _Font Color_: Use the blue dropdown to change from `Default` to `tcCharcoal` ![Set Nav Bar Text Color](assets/set_nav_bar_label_text_color.png)
+- _Text_: Change from `Label` to `Tip Calculator` ![Set Header View Label Text](assets/set_nav_bar_label_text.png)
+- _Font_: Change from `System 17.0` to `System Bold 24.0` ![Set Header View Label Font](assets/set_nav_bar_label_font.png)
+- _Font Color_: Use the blue dropdown to change from `Default` to `tcCharcoal` ![Set Header View Text Color](assets/set_nav_bar_label_text_color.png)
 
 After configuring each of the attributes above, your title label should look like the following:
 
-![Nav Bar Label Styled](assets/nav_bar_label_w_styling.png)
+![Header View Label Styled](assets/nav_bar_label_w_styling.png)
 
 Looks pretty good huh? Let's move on to our `UISwitch`.
 
@@ -139,18 +139,18 @@ Using the design below, identify each of the _auto-layout_ constraints for your 
 >
 Hint: the red area represents the frame of the switch.
 >
-![Nav Bar Switch Dimensions](assets/nav_bar_switch_dimensions.png)
+![Header View Switch Dimensions](assets/nav_bar_switch_dimensions.png)
 
 Check your answer with the solution below.
 
 > [solution]
 Based on our design, our `UISwitch` will need the following constraints:
 >
-![Nav Bar Switch With Constraints](assets/nav_bar_switch_constraints.png)
+![Header View Switch With Constraints](assets/nav_bar_switch_constraints.png)
 >
 **Constraints**:
 >
-- (Switch) Trailing Edge 24pts from Super View (Nav Bar) Trailing Edge
+- (Switch) Trailing Edge 24pts from Super View (Header View) Trailing Edge
 - (Switch) Leading Edge ≥20pts from Label Trailing Edge
 - (Switch) Center vertically aligned with Label Center
 
@@ -165,7 +165,7 @@ Open `Main.storyboard` and implement your `UISwitch` and it's constraints:
 >
 Step-by-step:
 >
-1. Drag a `UISwitch` from the _Object Library_ and drop it next to your nav bar title label.
+1. Drag a `UISwitch` from the _Object Library_ and drop it next to your header title label.
 1. With your  `UISwitch` selected, click the `Add New Constraints` button.
 1. Add the following two constraints using the `Add New Constraints` popup:
     - (Switch) Trailing Edge 24pts from Super View Trailing Edge
@@ -181,7 +181,7 @@ Nice! We've added and set our constraints for our `UISwitch`. Now, let's configu
 ### Configuring Attributes
 
 > [action]
-In `Main.storyboard`, select your nav bar's switch. Navigate to the _Attributes Inspector_ in the _Utilities area_ and change the following attributes:
+In `Main.storyboard`, select your header view's switch. Navigate to the _Attributes Inspector_ in the _Utilities area_ and change the following attributes:
 >
 ![Switch Attributes](assets/switch_attrs.png)
 >
@@ -190,9 +190,9 @@ In `Main.storyboard`, select your nav bar's switch. Navigate to the _Attributes 
 - _State_: Change from `On` to `Off`
 - _On Tint_: Change from `Default` to `tcSeafoamGreen`
 
-When you're done, your custom navigation bar should look like the following:
+When you're done, your custom header view should look like the following:
 
-![Nav Bar With Styling](assets/nav_bar_w_styling.png)
+![Header View With Styling](assets/nav_bar_w_styling.png)
 
 ## Adding Our IB Connections
 
@@ -206,7 +206,7 @@ We're almost finished with implementing our first UI group! To finish up, we'll 
 
 We'll need both of these connections later to implement our tip calculator logic.
 
-Let's get started by creating our first `IBOutlet` for our custom navigation bar (`UIView`.)
+Let's get started by creating our first `IBOutlet` for our header view (`UIView`.)
 
 > [action]
 Open your `Main.storyboard` and `ViewController.swift` files side-by-side using the _Assistant Editor_:
@@ -219,17 +219,17 @@ To create IB connections, we'll need to first open our storyboard and view contr
 1. Hold down the option button and click on `ViewController.swift` file in your _Project Navigator_. This will open your view controller in your _Assistant Editor_.
 1. (Optional) Use your Xcode toolbar to hide the _Utilities area_ to create more space in your project.
 
-With our `Main.storyboard` and `ViewController.swift` files side-by-side, let's create an `IBOutlet` for our nav bar.
+With our `Main.storyboard` and `ViewController.swift` files side-by-side, let's create an `IBOutlet` for our header.
 
 > [action]
-Create an `IBOutlet` for your custom navigation bar called `headerView`:
+Create an `IBOutlet` for your header called `headerView`:
 >
 ![Create Header View IBOutlet](assets/header_view_iboutlet.mov)
 >
 Step-by-step:
 >
-1. Select your nav bar view (`UIView`) in the _Document Outline_.
-1. With your nav bar selected, hold down ctrl and click-drag from the nav bar in your _Document Outline_ to your Swift code within the `ViewController` class definition.
+1. Select your header view (`UIView`) in the _Document Outline_.
+1. With your header view selected, hold down ctrl and click-drag from the header view in your _Document Outline_ to your Swift code within the `ViewController` class definition.
 1. You should see a popup for creating a new IB connection. Set the name field as `headerView`.
 1. Click _Connect_ to create your new `IBOutlet`.
 
@@ -248,10 +248,7 @@ class ViewController: UIViewController {
 }
 ```
 
-As you can see, we can now reference our custom nav bar's view as `headerView` in our Swift code.
-
-> [info]
-From this point forward, we'll refer to our custom nav bar by it's instance variable name: header view.
+As you can see, we can now reference our header view as `headerView` in our Swift code.
 
 Awesome! Repetition is the mother of learning. Let's do it again.
 
@@ -263,14 +260,14 @@ Create an `IBOutlet` for your header view's title label called `titleLabel`:
 Step-by-step:
 >
 1. Select your title label (`UILabel`) in your storyboard view controller.
-1. With your nav bar selected, hold down ctrl and click-drag from the label to your Swift code within the `ViewController` class definition.
+1. With your header view selected, hold down ctrl and click-drag from the label to your Swift code within the `ViewController` class definition.
 1. You should see a popup for creating a new IB connection. Set the name field as `titleLabel`.
 1. Click _Connect_ to create your new `IBOutlet`.
 
 <!-- break -->
 
 > [info]
-Notice that last time we created an `IBOutlet` by ctrl-dragged from our nav bar view in the _Document Outline_. This time we created our `IBOutlet` by ctrl-dragged directly from the label's storyboard object. Both ways of creating `IBOutlets` are valid.
+Notice that last time we created an `IBOutlet` by ctrl-dragged from our header view in the _Document Outline_. This time we created our `IBOutlet` by ctrl-dragged directly from the label's storyboard object. Both ways of creating `IBOutlets` are valid.
 
 At this point, we've walked through creating an `IBOutlet` twice. It's your turn.
 
