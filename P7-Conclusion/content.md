@@ -38,15 +38,19 @@ As always, try completing this challenge as much on your own as possible. If you
 
 ## App Design
 
-<!-- TODO: add designs above -->
+![Currency Exchange Design](assets/currency_xc_design.png)
 
-Above is an example design you can use to build your _Currency Exchange Calculator_. Feel free to get creative and add your own style into the app design.
+Above is an example design you can use to build your _Currency Exchange Calculator_. It's based off a [popular currency convertor](https://itunes.apple.com/us/app/currency-converter/id628148586?mt=8) on the App Store. Feel free to get creative and add your own style into the app design.
 
 ## Specs
 
 Just like your _Tip Calculator_, your _Currency Exchange Calculator_ app will involve reading user input and converting it to a different value.
 
-Your app should take a input of U.S. dollars and convert it into a currency of your choice when the user taps the _Calculate Button_. Some popular currencies you can consider using include the following: Euro, Yen, Rupee, Bitcoin.
+Your app should take a input of U.S. dollars and immediately convert it into a currency of your choice. Some popular currencies you can consider using include the following: Euro, Yen, Rupee, Bitcoin.
+
+Notice that there aren't any text fields or segmented controllers in the design above. Each number is a button that should change the input and output of the currency convertor.
+
+If you'd like a better idea of how the app works, go ahead and download the free version of this [popular currency convertor](https://itunes.apple.com/us/app/currency-converter/id628148586?mt=8) on the App Store. You should **not** need to purchase anything to download this app.
 
 > [info]
 For your exchange calculation, find the currency conversion rate online and hard-code it into your app.
