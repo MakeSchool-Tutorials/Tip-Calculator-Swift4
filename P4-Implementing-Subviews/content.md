@@ -79,7 +79,7 @@ After identifying our constraints, we can use _Interface Builder_ to add our new
 > [action]
 Open `Main.storyboard` and implement your title label and it's constraints:
 >
-![Add Header View Label With Constraints](assets/add_nav_bar_label_w_constraints.mov)
+![ms-video](assets/add_nav_bar_label_w_constraints.mov)
 >
 Step-by-step:
 >
@@ -161,7 +161,7 @@ Let's go ahead and add these constraints to our `UISwitch`.
 > [action]
 Open `Main.storyboard` and implement your `UISwitch` and it's constraints:
 >
-![Add Switch With Constraints](assets/add_switch_w_constraints.png)
+![ms-video](assets/add_switch_w_constraints.mov)
 >
 Step-by-step:
 >
@@ -211,7 +211,7 @@ Let's get started by creating our first `IBOutlet` for our header view (`UIView`
 > [action]
 Open your `Main.storyboard` and `ViewController.swift` files side-by-side using the _Assistant Editor_:
 >
-![Using Assistant Editor](assets/using_assistant_editor.mov)
+![ms-video](assets/using_assistant_editor.mov)
 >
 To create IB connections, we'll need to first open our storyboard and view controller source code side-by-side:
 >
@@ -224,7 +224,7 @@ With our `Main.storyboard` and `ViewController.swift` files side-by-side, let's 
 > [action]
 Create an `IBOutlet` for your header called `headerView`:
 >
-![Create Header View IBOutlet](assets/header_view_iboutlet.mov)
+![ms-video](assets/header_view_iboutlet.mov)
 >
 Step-by-step:
 >
@@ -255,7 +255,7 @@ Awesome! Repetition is the mother of learning. Let's do it again.
 > [action]
 Create an `IBOutlet` for your header view's title label called `titleLabel`:
 >
-![Create Title Label IBOutlet](assets/title_label_iboutlet.mov)
+![ms-video](assets/title_label_iboutlet.mov)
 >
 Step-by-step:
 >
@@ -301,7 +301,7 @@ We'll need to create an `IBAction` for our switch. This will allow us to execute
 > [action]
 Open both your `Main.storyboard` and `ViewController.swift` file using the _Assistant Editor_. Create a new `IBAction` for your switch:
 >
-![Create Switch IBAction](assets/switch_ibaction.mov)
+![ms-video](assets/switch_ibaction.mov)
 >
 Step-by-step:
 >
@@ -450,7 +450,7 @@ First, we'll need to add our stack view's sub-elements.
 > [action]
 In `Main.storyboard`, add an `UILabel` and `UITextField` to your view controller:
 >
-![Add Bill Amount Subviews](assets/add_bill_amount_subviews.png)
+![ms-video](assets/add_bill_amount_subviews.mov)
 >
 Step-by-step:
 >
@@ -463,7 +463,7 @@ Next, let's create our first `UIStackView` from our two new views.
 > [action]
 Create the _Bill Amount Stack View_ using the label and textfield:
 >
-![Create Bill Amount Stack View](assets/create_bill_amount_stack_view.png)
+![ms-video](assets/create_bill_amount_stack_view.mov)
 >
 1. Select your _Bill Amount Title Label_ (`UILabel`) in your storyboard.
 1. Hold down shift and click on your `UITextField`. This allows you to select multiple items at the same time.
@@ -483,7 +483,7 @@ First, we'll add the _Tip Percent Stack View's_ subviews.
 > [action]
 In `Main.storyboard`, add an `UILabel` and `UISegmentedControl` to your view controller:
 >
-![Add Tip Percent Subviews](assets/add_tip_percent_subviews.png)
+![ms-video](assets/add_tip_percent_subviews.mov)
 >
 Step-by-step:
 >
@@ -496,7 +496,7 @@ Now we'll move on to create our second inner stack view.
 > [action]
 Create the _Tip Percent Stack View_ using the label and segmented control:
 >
-![Create Tip Percent Stack View](assets/create_tip_percent_stack_view.png)
+![ms-video](assets/create_tip_percent_stack_view.mov)
 >
 1. Select your _Tip Percent Title Label_ (`UILabel`) in your storyboard.
 1. Hold down shift and click on your `UISegmentedControl`. This allows you to select multiple items at the same time.
@@ -516,7 +516,7 @@ Next, let's create our outer stack view.
 > [action]
 Create the _Outer Stack View_ using both inner (horizontal) stack views:
 >
-![Create Outer Stack View](assets/create_outer_stack_view.mov)
+![ms-video](assets/create_outer_stack_view.mov)
 >
 Step-by-step:
 >
@@ -537,7 +537,7 @@ Let's start with remaining outer stack view constraints.
 > [action]
 Set the outer stack view's frame with the following constraints:
 >
-![Add Outer Stack View Constraints](assets/add_outer_stack_view_constraints.mov)
+![ms-video](assets/add_outer_stack_view_constraints.mov)
 >
 Step-by-step:
 >
@@ -556,7 +556,7 @@ Next, we'll add our equal width constraints to make sure the width of our outer 
 > [action]
 Set equal widths constraints for each stack view:
 >
-![Add Stack View Equal Widths Constraints](assets/add_stack_view_equal_widths_constraints.mov)
+![ms-video](assets/add_stack_view_equal_widths_constraints.mov)
 >
 Step-by-step:
 >
@@ -577,7 +577,7 @@ Let's add our final width constraints for our text field and segmented control r
 > [action]
 Set a width constraint for the _Bill Amount Text Field_:
 >
-![Text Field Width Constraint](assets/text_field_width_constraint.mov)
+![ms-video](assets/text_field_width_constraint.mov)
 >
 Step-by-step:
 >
@@ -595,7 +595,7 @@ Check your solution below.
 > [solution]
 We set a width constraint for our _Tip Percent Segmented Control_ with the following:
 >
-![Segmented Control Width Constraint](assets/segmented_control_width_constraint.mov)
+![ms-video](assets/segmented_control_width_constraint.mov)
 >
 Step-by-step:
 >
@@ -620,7 +620,7 @@ We'll quickly go through one together for review and let you do the rest on your
 > [action]
 Set the _Input Card's_ background color to `tcDarkBlue`:
 >
-![Set Input Card Background Color](assets/set_input_card_bg_color.mov)
+![ms-video](assets/set_input_card_bg_color.mov)
 >
 Step-by-step:
 >
@@ -670,7 +670,7 @@ The last attribute we'll need to set is the title for each segment our segmented
 > [action]
 For each segment of your segmented control, set the title attribute to `15%`, `18%`, `20%` respectively:
 >
-![Set Segmented Control Titles](assets/set_segmented_control_titles.mov)
+![ms-video](assets/set_segmented_control_titles.mov)
 
 Let's build and run our project to see our progress.
 
@@ -694,7 +694,7 @@ Let's create an `IBOutlet` for our input card (`UIView`.)
 > [action]
 Create an `IBOutlet ` for the input card view:
 >
-![Create Input Card IBAction](assets/input_card_ibaction.mov)
+![ms-video](assets/input_card_ibaction.mov)
 >
 Step-by-step:
 >
@@ -725,9 +725,10 @@ Try implementing an `IBAction` for your `UISegmentedControl`. Set the _Name_ as 
 > [solution]
 Creating an `IBAction` is similar to creating an `IBOutlet`:
 >
-![Create Segmented Control IBAction](assets/segmented_control_ibaction.mov)
+![ms-video](assets/segmented_control_ibaction.mov)
 >
 Step-by-step:
+>
 1. Select your segmented control (`UISegmentedControl`) in the _Document Outline_.
 1. With your segmented control selected, hold down ctrl and click-drag from the segmented control in your _Document Outline_ to your `ViewController` class.
 1. You should see a popup for creating a new IB connection. In the popup, change the _Connection_ type from `Outlet` to `Action`.
@@ -872,6 +873,7 @@ To create both equal width constraints:
 1. Select the `Equal Widths` checkbox and click `Add 2 Constraints` to create your equal width constraints.
 >
 To create each title label's fixed width constraint:
+>
 1. Select the `UILabel` object in the _Document Outline_. Make sure you're selecting the correct label.
 1. With the label selected, click the `Add New Constraints` button.
 1. Set a fixed width constraint of 110pts.

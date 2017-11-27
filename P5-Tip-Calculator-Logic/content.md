@@ -5,7 +5,7 @@ slug: tip-calculator-logic
 
 At this point, we've finished building our tip calculator's UI. However, if we launch our app and try to use it, nothing happens. Hmm... not particularly useful.
 
-To prevent the angry pitchfork mob, we'll make our tip calculator work by writing code that:
+To prevent one star reviews, let's make our tip calculator work by writing code that:
 
 1. takes the user's input
 1. calculates the correct outputs
@@ -24,7 +24,7 @@ When the user taps on the _Bill Amount Text Field_, the decimal pad keyboard wil
 We'll fix this first, by implementing a _Calculate Button_ that will appear right above the keyboard.
 
 > [info]
-To keep things simple, there's a bit of _magic_ that happens behind these scene for our soon-to-be calculate button. We've abstracted the majority into a custom `UITextField` subclasses which will replace our current `UITextField`. Even if you don't fully understand how our calculate button is being displayed, bear with us for now!
+To keep things simple, there's a bit of _magic_ that happens behind these scene for our soon-to-be calculate button. We've abstracted the majority into a custom `UITextField` subclass which will replace our current `UITextField`. Even if you don't fully understand how our calculate button is being displayed, bear with us for now!
 
 ## Adding a Calculate Button
 
@@ -40,7 +40,7 @@ Don't worry too much about the code in this file for now. In short, it creates o
 To use our subclass, we'll need to replace our current `UITextField` with our `BillAmountTextField` subclass.
 
 > [action]
-Open `Main.storyboard` and set `BillAmountTextField` as our _Bill Amount Text Field's_ custom class.
+Open `Main.storyboard` and set `BillAmountTextField` as our _Bill Amount Text Field's_ custom class:
 >
 1. Select the _Bill Amount Text Field_ using the _Document Outline_. ![Select Text Field](assets/select_text_field.png)
 1. With the text field still selected, open the _Identity Inspector_ in the _Utilities area_. ![Open Identity Inspector](assets/open_identity_inspector.png)
@@ -581,9 +581,9 @@ Your new `clear()` function should be the following:
 ```
 func clear() {
     billAmountTextField.text = nil
-    tipSegmentedControl.selectedSegmentIndex = 0
+    tipPercentSegmentedControl.selectedSegmentIndex = 0
     tipAmountLabel.text = "$0.00"
-    totalCostLabel.text = "$0.00"
+    totalAmountLabel.text = "$0.00"
 }
 ```
 

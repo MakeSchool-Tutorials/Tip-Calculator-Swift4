@@ -137,7 +137,7 @@ Once we start coding, we'll be able to access each respective color through the 
 let selectedColor = UIColor.tcSeafoamGreen
 ```
 
-Notice that we prefix each of our custom colors with `tc` to avoid namespace conflicts and make our colors easier to fix with Xcode autocomplete.
+Notice that we prefix each of our custom colors with `tc` to avoid namespace conflicts and make our colors easier to find with Xcode autocomplete.
 
 > [info]
 In this project, your custom colors have been defined in your asset catalog, however this is just one of many ways for defining custom colors. You can also create custom colors programmatically or through _Interface Builder_.
@@ -165,6 +165,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+
+<!-- break -->
 
 > [info]
 For this tutorial, you won't need to change or modify the _App Delegate_. However, it's helpful to know about it's purpose for when you start writing your own apps.

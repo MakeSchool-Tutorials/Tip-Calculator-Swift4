@@ -23,7 +23,7 @@ If you're a complete beginner and looking for your first introduction to iOS dev
 
 ## Estimated Completion Time:
 
-1.5 hours
+3 hours
 
 # What We're Building
 

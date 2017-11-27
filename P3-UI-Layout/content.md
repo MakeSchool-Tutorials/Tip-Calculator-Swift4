@@ -12,7 +12,7 @@ We'll start building our app by implementing the UI in _Interface Builder_. For 
 We'll get started by creating our header view with a `UIView`.
 
 > [info]
-`UIKit` has it's own header-like bar called the `UINavigationBar`. To keep things simple, we'll start from scratch and create our own header view instead of using iOS's `UINavigationBar`. If this tutorial refers to `navigation bar`, it's referring to our custom header view.
+`UIKit` has it's own header-like bar called the `UINavigationBar`. To keep things simple, we'll start from scratch and create our own header view instead of using iOS's `UINavigationBar`.
 
 <!-- break -->
 
@@ -24,7 +24,7 @@ Next, we'll add a `UIView` and reposition/resize it to be our header view.
 > [action]
 Create a header view by dragging an `UIView` object from the _Object Library_ to the top of the view controller. Don't worry too much about the perfect size and position for now. We'll handle that later.
 >
-![Add Custom Header View](assets/add_custom_nav_bar.mov)
+![ms-video](assets/add_custom_nav_bar.mov)
 
 The new `UIView` object that we just added is going to be our custom header view. We'll add other subviews onto it later.
 
@@ -99,13 +99,8 @@ In `Main.storyboard` perform the following:
 1. Find the view's `Frame Rectangle` fields. Change the X, Y, Width and Height values in the size inspector to the value of the rect in the solution above.
 >
 ![Fixed Header View](assets/fix_nav_bar_rect.png)
-
-Let's see if our changes worked!
-
-> [action]
-Build and run the app in the iPhone 8 simulator by clicking the run button in the toolbar.
 >
-![Click Run](assets/click_run.png)
+Let's see if our changes worked! Build and run the app in the iPhone 8 simulator by clicking the run button in the toolbar.
 
 You should see the custom header view against your off-white root view in the simulator. Nothing fancy yet!
 
@@ -215,7 +210,7 @@ Let's set our constraints in _Interface Builder_. First we'll start by adding ou
 > [action]
 Open `Main.storyboard` from your _Project Navigator_. Select your header view (`UIView`) and add the following constraints:
 >
-![Set Header View Edge Constraints](assets/edge_constraints_nav_bar.mov)
+![ms-video](assets/edge_constraints_nav_bar.mov)
 >
 With our header view selected, we click on the _Add New Constraints_ button and set each of the edge constraints:
 >
@@ -236,7 +231,7 @@ You'll notice above:
 Let's add the final constraint to define the header view's height.
 
 > [action]
-Add a constraint from the bottom edge of the header view to the top edge of the _Safe Area_: ![Header View Height Constraint](assets/nav_bar_safe_area_constraint.mov)
+Add a constraint from the bottom edge of the header view to the top edge of the _Safe Area_: ![ms-video](assets/nav_bar_safe_area_constraint.mov)
 >
 To add the constraint in the video, follow the steps below:
 >
@@ -255,9 +250,9 @@ It works! Next, we'll dive deeper into _auto-layout_ and the different kind of c
 
 To properly setup constraints for our header view, we've only used one type of constraints but there are many different types of constraints that you can use to build complex UI layouts. Before setting up constraints for any of our other fews, let's look at common constraints we can use to build dynamic layouts with _auto-layout_.
 
-## Relative Position
+## Relative Positioning
 
-First, let's review our relative positioning constraint. Relative positioning allows use to position a view relative to another view. For example, we can create a constraint that positions the blue view 45pts from the trailing (right) side of the red view:
+First, let's review our relative positioning constraint. Relative positioning allows to position a view relative to another view. For example, we can create a constraint that positions the blue view 45pts from the trailing (right) side of the red view:
 
 ![Relative Positioning Positive](assets/relative_positioning_positive.png)
 
@@ -347,7 +342,7 @@ With our header complete, let's move on to implementing the tip input card.
 > [action]
 Open `Main.storyboard`. Add a new `UIView` and set the following constraints:
 >
-![Add Input Card With Constraints](assets/add_input_card_w_constraints.mov)
+![ms-video](assets/add_input_card_w_constraints.mov)
 >
 Step by step:
 >
@@ -367,7 +362,7 @@ Next, we'll add our output card and it's constraints.
 > [action]
 In storyboard, add a new `UIView` and set the following constraints:
 >
-![Add Output Card With Constraints](assets/add_output_card_w_constraints.mov)
+![ms-video](assets/add_output_card_w_constraints.mov)
 >
 Step by step:
 >
@@ -383,7 +378,7 @@ We'll also add an equal height constraints between both input and output card vi
 > [action]
 Add an equal heights constraint between both input and output cards:
 >
-![Add Equal Heights Constraint](assets/add_cards_equal_height_constraint.mov)
+![ms-video](assets/add_cards_equal_height_constraint.mov)
 >
 Step by step:
 >
@@ -399,7 +394,7 @@ Xcode should still show an _auto-layout_ error because we haven't added enough c
 > [action]
 In storyboard, add a new `UIButton` and set the following constraints:
 >
-![Add Reset Button](assets/add_reset_button_w_constraints.mov)
+![ms-video](assets/add_reset_button_w_constraints.mov)
 >
 Step-by-step:
 >
@@ -417,7 +412,7 @@ By default, our button has a clear background color. To make our reset button ea
 > [action]
 Change the _Background color_ of the reset button:
 >
-![Set Reset Button Background Color](assets/set_reset_button_bg_color.mov)
+![ms-video](assets/set_reset_button_bg_color.mov)
 >
 Step-by-step:
 >

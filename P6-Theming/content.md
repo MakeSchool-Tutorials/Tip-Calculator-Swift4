@@ -104,8 +104,8 @@ func setupViews() {
     headerView.layer.shadowColor = UIColor.black.cgColor
     headerView.layer.shadowRadius = 35
 >
-    inputContainerView.layer.cornerRadius = 8
-    inputContainerView.layer.masksToBounds = true
+    inputCardView.layer.cornerRadius = 8
+    inputCardView.layer.masksToBounds = true
 }
 ```
 >
