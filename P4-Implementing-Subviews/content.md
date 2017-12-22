@@ -79,7 +79,7 @@ After identifying our constraints, we can use _Interface Builder_ to add our new
 > [action]
 Open `Main.storyboard` and implement your title label and it's constraints:
 >
-![ms-video](assets/add_nav_bar_label_w_constraints.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/add_nav_bar_label_w_constraints.mp4)
 >
 Step-by-step:
 >
@@ -161,7 +161,7 @@ Let's go ahead and add these constraints to our `UISwitch`.
 > [action]
 Open `Main.storyboard` and implement your `UISwitch` and it's constraints:
 >
-![ms-video](assets/add_switch_w_constraints.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/add_switch_w_constraints.mp4)
 >
 Step-by-step:
 >
@@ -211,7 +211,7 @@ Let's get started by creating our first `IBOutlet` for our header view (`UIView`
 > [action]
 Open your `Main.storyboard` and `ViewController.swift` files side-by-side using the _Assistant Editor_:
 >
-![ms-video](assets/using_assistant_editor.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/using_assistant_editor.mp4)
 >
 To create IB connections, we'll need to first open our storyboard and view controller source code side-by-side:
 >
@@ -224,7 +224,7 @@ With our `Main.storyboard` and `ViewController.swift` files side-by-side, let's 
 > [action]
 Create an `IBOutlet` for your header called `headerView`:
 >
-![ms-video](assets/header_view_iboutlet.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/header_view_iboutlet.mp4)
 >
 Step-by-step:
 >
@@ -255,7 +255,7 @@ Awesome! Repetition is the mother of learning. Let's do it again.
 > [action]
 Create an `IBOutlet` for your header view's title label called `titleLabel`:
 >
-![ms-video](assets/title_label_iboutlet.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/title_label_iboutlet.mp4)
 >
 Step-by-step:
 >
@@ -301,7 +301,7 @@ We'll need to create an `IBAction` for our switch. This will allow us to execute
 > [action]
 Open both your `Main.storyboard` and `ViewController.swift` file using the _Assistant Editor_. Create a new `IBAction` for your switch:
 >
-![ms-video](assets/switch_ibaction.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/switch_ibaction.mp4)
 >
 Step-by-step:
 >
@@ -450,7 +450,7 @@ First, we'll need to add our stack view's sub-elements.
 > [action]
 In `Main.storyboard`, add an `UILabel` and `UITextField` to your view controller:
 >
-![ms-video](assets/add_bill_amount_subviews.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/add_bill_amount_subviews.mp4)
 >
 Step-by-step:
 >
@@ -463,7 +463,7 @@ Next, let's create our first `UIStackView` from our two new views.
 > [action]
 Create the _Bill Amount Stack View_ using the label and textfield:
 >
-![ms-video](assets/create_bill_amount_stack_view.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/create_bill_amount_stack_view.mp4)
 >
 1. Select your _Bill Amount Title Label_ (`UILabel`) in your storyboard.
 1. Hold down shift and click on your `UITextField`. This allows you to select multiple items at the same time.
@@ -483,7 +483,7 @@ First, we'll add the _Tip Percent Stack View's_ subviews.
 > [action]
 In `Main.storyboard`, add an `UILabel` and `UISegmentedControl` to your view controller:
 >
-![ms-video](assets/add_tip_percent_subviews.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/add_tip_percent_subviews.mp4)
 >
 Step-by-step:
 >
@@ -496,7 +496,7 @@ Now we'll move on to create our second inner stack view.
 > [action]
 Create the _Tip Percent Stack View_ using the label and segmented control:
 >
-![ms-video](assets/create_tip_percent_stack_view.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/create_tip_percent_stack_view.mp4)
 >
 1. Select your _Tip Percent Title Label_ (`UILabel`) in your storyboard.
 1. Hold down shift and click on your `UISegmentedControl`. This allows you to select multiple items at the same time.
@@ -516,7 +516,7 @@ Next, let's create our outer stack view.
 > [action]
 Create the _Outer Stack View_ using both inner (horizontal) stack views:
 >
-![ms-video](assets/create_outer_stack_view.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/create_outer_stack_view.mp4)
 >
 Step-by-step:
 >
@@ -537,7 +537,7 @@ Let's start with remaining outer stack view constraints.
 > [action]
 Set the outer stack view's frame with the following constraints:
 >
-![ms-video](assets/add_outer_stack_view_constraints.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/add_outer_stack_view_constraints.mp4)
 >
 Step-by-step:
 >
@@ -556,7 +556,7 @@ Next, we'll add our equal width constraints to make sure the width of our outer 
 > [action]
 Set equal widths constraints for each stack view:
 >
-![ms-video](assets/add_stack_view_equal_widths_constraints.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/add_stack_view_equal_widths_constraints.mp4)
 >
 Step-by-step:
 >
@@ -577,7 +577,7 @@ Let's add our final width constraints for our text field and segmented control r
 > [action]
 Set a width constraint for the _Bill Amount Text Field_:
 >
-![ms-video](assets/text_field_width_constraint.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/text_field_width_constraint.mp4)
 >
 Step-by-step:
 >
@@ -595,7 +595,7 @@ Check your solution below.
 > [solution]
 We set a width constraint for our _Tip Percent Segmented Control_ with the following:
 >
-![ms-video](assets/segmented_control_width_constraint.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/segmented_control_width_constraint.mp4)
 >
 Step-by-step:
 >
@@ -620,7 +620,7 @@ We'll quickly go through one together for review and let you do the rest on your
 > [action]
 Set the _Input Card's_ background color to `tcDarkBlue`:
 >
-![ms-video](assets/set_input_card_bg_color.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/set_input_card_bg_color.mp4)
 >
 Step-by-step:
 >
@@ -670,7 +670,7 @@ The last attribute we'll need to set is the title for each segment our segmented
 > [action]
 For each segment of your segmented control, set the title attribute to `15%`, `18%`, `20%` respectively:
 >
-![ms-video](assets/set_segmented_control_titles.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/set_segmented_control_titles.mp4)
 
 Let's build and run our project to see our progress.
 
@@ -694,7 +694,7 @@ Let's create an `IBOutlet` for our input card (`UIView`.)
 > [action]
 Create an `IBOutlet ` for the input card view:
 >
-![ms-video](assets/input_card_ibaction.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/input_card_ibaction.mp4)
 >
 Step-by-step:
 >
@@ -725,7 +725,7 @@ Try implementing an `IBAction` for your `UISegmentedControl`. Set the _Name_ as 
 > [solution]
 Creating an `IBAction` is similar to creating an `IBOutlet`:
 >
-![ms-video](assets/segmented_control_ibaction.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p4_implementing_subviews/segmented_control_ibaction.mp4)
 >
 Step-by-step:
 >

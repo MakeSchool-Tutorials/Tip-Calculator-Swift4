@@ -24,7 +24,7 @@ Next, we'll add a `UIView` and reposition/resize it to be our header view.
 > [action]
 Create a header view by dragging an `UIView` object from the _Object Library_ to the top of the view controller. Don't worry too much about the perfect size and position for now. We'll handle that later.
 >
-![ms-video](assets/add_custom_nav_bar.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/add_custom_nav_bar.mp4)
 
 The new `UIView` object that we just added is going to be our custom header view. We'll add other subviews onto it later.
 
@@ -210,7 +210,7 @@ Let's set our constraints in _Interface Builder_. First we'll start by adding ou
 > [action]
 Open `Main.storyboard` from your _Project Navigator_. Select your header view (`UIView`) and add the following constraints:
 >
-![ms-video](assets/edge_constraints_nav_bar.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/edge_constraints_nav_bar.mp4)
 >
 With our header view selected, we click on the _Add New Constraints_ button and set each of the edge constraints:
 >
@@ -231,7 +231,7 @@ You'll notice above:
 Let's add the final constraint to define the header view's height.
 
 > [action]
-Add a constraint from the bottom edge of the header view to the top edge of the _Safe Area_: ![ms-video](assets/nav_bar_safe_area_constraint.mov)
+Add a constraint from the bottom edge of the header view to the top edge of the _Safe Area_: ![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/nav_bar_safe_area_constraint.mp4)
 >
 To add the constraint in the video, follow the steps below:
 >
@@ -342,7 +342,7 @@ With our header complete, let's move on to implementing the tip input card.
 > [action]
 Open `Main.storyboard`. Add a new `UIView` and set the following constraints:
 >
-![ms-video](assets/add_input_card_w_constraints.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/add_input_card_w_constraints.mp4)
 >
 Step by step:
 >
@@ -362,7 +362,7 @@ Next, we'll add our output card and it's constraints.
 > [action]
 In storyboard, add a new `UIView` and set the following constraints:
 >
-![ms-video](assets/add_output_card_w_constraints.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/add_output_card_w_constraints.mp4)
 >
 Step by step:
 >
@@ -378,7 +378,7 @@ We'll also add an equal height constraints between both input and output card vi
 > [action]
 Add an equal heights constraint between both input and output cards:
 >
-![ms-video](assets/add_cards_equal_height_constraint.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/add_cards_equal_height_constraint.mp4)
 >
 Step by step:
 >
@@ -394,7 +394,7 @@ Xcode should still show an _auto-layout_ error because we haven't added enough c
 > [action]
 In storyboard, add a new `UIButton` and set the following constraints:
 >
-![ms-video](assets/add_reset_button_w_constraints.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/add_reset_button_w_constraints.mp4)
 >
 Step-by-step:
 >
@@ -412,7 +412,7 @@ By default, our button has a clear background color. To make our reset button ea
 > [action]
 Change the _Background color_ of the reset button:
 >
-![ms-video](assets/set_reset_button_bg_color.mov)
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/set_reset_button_bg_color.mp4)
 >
 Step-by-step:
 >
