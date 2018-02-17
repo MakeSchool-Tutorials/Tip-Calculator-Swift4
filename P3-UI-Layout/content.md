@@ -383,7 +383,7 @@ Add an equal heights constraint between both input and output cards:
 Step by step:
 >
 1. Select the output card view.
-1. With the output card selected, hold down shit and then click on the input card view. This will allow you to select both card views.
+1. With the output card selected, hold down shift and then click on the input card view. This will allow you to select both card views.
 1. Click the `Add New Constraints` button at the bottom right corner of the _Interface Builder Editor_ window.
 1. In the popup prompt, select `Equal Heights` and add the selected constraint.
 
