@@ -48,7 +48,7 @@ To answer this question, we'll have to learn about the basic UI building block, 
 
 The _UIView_ class is an object that represents a rectangular area on your iPhone screen. Your entire UI (with few exceptions), is built from multiple _UIView_ objects.
 
-To better understand this, let's take a look at Square Cash, an app that allows you to send and recieve money.
+To better understand this, let's take a look at Square Cash, an app that allows you to send and receive money.
 
 ![Square Cash UIView Breakdown](assets/square_cash_uiviews.png)
 
@@ -160,7 +160,7 @@ The next group of views allows the user to provide input to calculate the bill a
 
 ![Tip Input Outline](assets/tip_input_outline.png)
 
-As with the header view, we'll break down this group of UI components into it's individual components.
+As with the header view, we'll break down this group of UI components into its individual components.
 
 ### UILabel
 
@@ -188,7 +188,7 @@ We'll need the text field for the user to input their bill amount.
 
 ### UISegmentedControl
 
-Similar to the switch, the `UISegmentedControl` class provides a UI object that allows the user to toggle between different options. The main different being that a segmented control can have 2+ different states, while a switch can only toggle in-between an on and and off state.
+Similar to the switch, the `UISegmentedControl` class provides a UI object that allows the user to toggle between different options. The main different being that a segmented control can have 2+ different states, while a switch can only toggle in-between an on and off state.
 
 In addition to 2+ toggle states, switches can also have each option name labeled. Let's take a look at the segmented control we'll use in our tip calculator.
 
@@ -224,17 +224,17 @@ Simple enough, this grouping will consist only of a single element: a button.
 
 ### UIButton
 
-The `UIButton`, along with labels, are one of the most common objects for building your UI. A user can interact with a button by tapping it and triggering an event. This event can be tied to calling a function and running code.
+The `UIButton`, along with labels, is one of the most common objects for building your UI. A user can interact with a button by tapping it and triggering an event. This event can be tied to calling a function and running code.
 
 ![Reset Button](assets/reset_button.png)
 
-Our reset button will allow a user to clear the current input from our tip calculator and reset it to a empty state.
+Our reset button will allow a user to clear the current input from our tip calculator and reset it to an empty state.
 
 > [info]
 You don't need to memorize all of the UIKit objects we've just covered. Just remember that there are pre-made UI components that you can use to build your UI. If you're trying to build any type of visual element, check `UIKit` to see if there's a base UI object you can use to build off of.
 
 # Reviewing What We've Learning
 
-We've reviewed and learned about many new UI objects in `UIKit`. You'll use these objects as basic building blocks for creating various UI for your app. If you're ever looking for a comphrensive guide of all of the UIKit objects, you can reference Apple's developer docs by [clicking here](https://developer.apple.com/documentation/uikit/views_and_controls).
+We've reviewed and learned about many new UI objects in `UIKit`. You'll use these objects as basic building blocks for creating various UI for your app. If you're ever looking for a comprehensive guide of all of the UIKit objects, you can reference Apple's developer docs by [clicking here](https://developer.apple.com/documentation/uikit/views_and_controls).
 
 Moving forward, we'll start building tip calculator in Xcode and look at how to use each of these UI components.
