@@ -260,7 +260,7 @@ Create an `IBOutlet` for your header view's title label called `titleLabel`:
 Step-by-step:
 >
 1. Select your title label (`UILabel`) in your storyboard view controller.
-1. With your header view selected, hold down ctrl and click-drag from the label to your Swift code within the `ViewController` class definition.
+1. With your Tip Calculator label selected, hold down ctrl and click-drag from the label to your Swift code within the `ViewController` class definition.
 1. You should see a popup for creating a new IB connection. Set the name field as `titleLabel`.
 1. Click _Connect_ to create your new `IBOutlet`.
 
