@@ -962,7 +962,7 @@ Let's finish our last UI group: the reset button. Unlike the other UI groups, we
 > [challenge]
 You know the drill. Set each of the following attributes for the reset button:
 >
-**Output Card View:**
+**Reset Button:**
 >
 - _Type_: Change from `System` to `Custom`
 - _Title_: Change from `Button` to `RESET`
