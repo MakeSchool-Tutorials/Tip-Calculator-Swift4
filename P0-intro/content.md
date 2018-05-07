@@ -54,4 +54,4 @@ Getting stuck when coding (and debugging) is a natural part of the programming p
 
 If you want to compare your code to the solution, you can find it here.
 
-TODO: insert link to github repo
+<!-- TODO: insert link to github repo -->
