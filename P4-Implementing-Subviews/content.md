@@ -172,7 +172,7 @@ Step-by-step:
     - (Switch) Leading Edge 20pts from Label Trailing Edge
 1. Hover over the switch's leading edge constraint to the label and click on it. You should see it's attributes appear in the _Attributes Inspector_.
 1. Using the _Attributes Inspector_, change the constraint's _Relation_ attribute from `Equal` to `Greater Than or Equal`.
-1. Click on the `UISwitch` to select it again. (Make sure you're not selecting the constraint from the previous step.)
+1. Click on the `UISwitch` to select it again. Make sure you're not selecting the constraint from the previous step.
 1. With your switch selected, hold control (ctrl) and click-drag from the `UISwitch` to the `UILabel`.
 1. You should see a popup to add a new constraint. Select `Center Vertically` to vertically align your switch's center to the label's center.
 
@@ -206,7 +206,7 @@ We're almost finished with implementing our first UI group! To finish up, we'll 
 
 We'll need both of these connections later to implement our tip calculator logic.
 
-Let's get started by creating our first `IBOutlet` for our header view (`UIView`.)
+Let's get started by creating our first `IBOutlet` for our header view (`UIView`).
 
 > [action]
 Open your `Main.storyboard` and `ViewController.swift` files side-by-side using the _Assistant Editor_:
@@ -676,7 +676,7 @@ Let's build and run our project to see our progress.
 
 ![Input Card Styled](assets/input_card_styled.png)
 
-Bam! Our app matches our design (with exception of the rounded corners of course.)
+Bam! Our app matches our design (with exception of the rounded corners of course).
 
 > [info]
 Rounded corners (and shadows) make use of our view's layer property. We'll cover this later in this tutorial.
@@ -689,7 +689,7 @@ We've done this before with our header view. Let's get some more practice creati
 
 We'll do another together for review.
 
-Let's create an `IBOutlet` for our input card (`UIView`.)
+Let's create an `IBOutlet` for our input card (`UIView`).
 
 > [action]
 Create an `IBOutlet ` for the input card view:

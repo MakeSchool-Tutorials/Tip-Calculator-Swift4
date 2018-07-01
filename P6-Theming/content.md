@@ -171,7 +171,7 @@ We've finished styling our tip calculator's subviews. Your tip calculator should
 
 # Light / Dark Theme
 
-The last feature we need to implement is the ability to toggle themes. Currently, our app has a light colored theme. When we're finished, our `UISwitch` will be able to toggle from our light colored theme to a dark one (and vice versa.)
+The last feature we need to implement is the ability to toggle themes. Currently, our app has a light colored theme. When we're finished, our `UISwitch` will be able to toggle from our light colored theme to a dark one (and vice versa).
 
 Let's start by creating a new function that will eventually contain all our theme switching code.
 

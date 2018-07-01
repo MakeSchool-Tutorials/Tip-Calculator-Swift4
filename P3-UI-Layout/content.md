@@ -307,7 +307,7 @@ You can also choose to offset (positive or negative to determine direction) from
 
 ## Aspect Ratio
 
-Aspect ratio constraints are also available. You can set the height to be a ratio of the width or vice versa. This can be useful if you want to make sure the view is always a square (1:1 aspect ratio) or if you decide that the height will always be 1/2 of the width (1:2 aspect ratio.)
+Aspect ratio constraints are also available. You can set the height to be a ratio of the width or vice versa. This can be useful if you want to make sure the view is always a square (1:1 aspect ratio) or if you decide that the height will always be 1/2 of the width (1:2 aspect ratio).
 
 In the following example, we set the aspect ratio to (1:3) where the height is a third of the width:
 

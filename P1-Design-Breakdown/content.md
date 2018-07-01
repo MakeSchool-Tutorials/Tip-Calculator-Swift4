@@ -59,7 +59,7 @@ On top of the root, you can add subviews. These subviews are `UIView` objects or
 > [info]
 **What is UIKit?**
 >
-`UIKit` is a framework that provides pre-built objects and functionality that you can use to build iOS apps. This includes a lot of under-the-hood functionality (handling your app's lifecycle and resource management) as well as commonly used UI components (buttons and labels.)
+`UIKit` is a framework that provides pre-built objects and functionality that you can use to build iOS apps. This includes a lot of under-the-hood functionality (handling your app's lifecycle and resource management) as well as commonly used UI components (buttons and labels).
 
 <!-- break -->
 
@@ -79,7 +79,7 @@ You'll notice many new UI components that we're using from UIKit. Each of these 
 
 ## Grouping Subviews
 
-It's common to organize our subviews in groups. Although you can technically group subviews however you'd like, usually groups are based on how you plan to position and layout your UI (more on this later.)
+It's common to organize our subviews in groups. Although you can technically group subviews however you'd like, usually groups are based on how you plan to position and layout your UI (more on this later).
 
 Using our _Square Cash_ example, you might group each of the subviews in the following manner:
 
@@ -128,7 +128,7 @@ As you can see, the header is a `UIView` placed on top of the root view. Additio
 
 ![Header Title Label](assets/header_title_label.png)
 
-The `UILabel` class can be configured from it's many properties. (i.e. text, font, text color, number of lines, etc.)
+The `UILabel` class can be configured from it's many properties. (i.e. text, font, text color, number of lines, etc).
 
 <!-- In our case, we'll use an off-black (#4A4A4A) text color and bold font weight of `San Francisco`, the default system font created by Apple. -->
 

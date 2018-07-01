@@ -228,7 +228,7 @@ As you can see, the correct bill amount now prints in our debug console!
 
 # Calculating Tip
 
-Now that we've successfully read our user's bill amount input, we're going to implement the logic to calculate our outputs (tip amount + total amount.)
+Now that we've successfully read our user's bill amount input, we're going to implement the logic to calculate our outputs (tip amount + total amount).
 
 To calculate our outputs, we'll need to do the following:
 
