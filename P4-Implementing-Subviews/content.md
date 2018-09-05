@@ -544,7 +544,7 @@ Step-by-step:
 1. Select the outer stack view in the _Document Outline_.
 1. With your outer stack view selected, click the `Add New Constraints` button.
 1. Add the following two constraints using the `Add New Constraints` popup:
-    - (Outer Stack View) Leading Edge 22pts from Super View (Input Card) Leading Edge
+    - (Outer Stack View) Leading Edge 22pts from Super View (input card) Leading Edge
     - (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
 1. In the _Document Outline_, hold down control (ctrl) and click-drag from the outer stack view to it's super view (input card).
 1. In the popup, select `Center Vertically In Container` to create a new constraint. This will vertically align the outer stack view's center with it's super view's center.
@@ -774,7 +774,7 @@ Next, we'll create a outer (vertical) stack view from the two inner stack views.
 
 Just like the input card's outer stack view, we'll add the following constraints to set the frame of the outer stack view:
 
-- (Outer Stack View) Leading Edge 22pts from Super View (Output Card) Leading Edge
+- (Outer Stack View) Leading Edge 22pts from Super View (output card) Leading Edge
 - (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
 - (Outer Stack View) Center vertically aligned with Super View Center
 
@@ -835,7 +835,7 @@ Next, let's add the constraints for our outer stack view.
 > [challenge]
 Set the outer stack view's frame with the following constraints:
 >
-- (Outer Stack View) Leading Edge 22pts from Super View (Output Card) Leading Edge
+- (Outer Stack View) Leading Edge 22pts from Super View (output card) Leading Edge
 - (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
 - (Outer Stack View) Center vertically aligned with Super View Center
 
@@ -846,9 +846,9 @@ Set the outer stack view's frame with the following constraints:
 1. Select the outer stack view in the _Document Outline_.
 1. With your outer stack view selected, click the `Add New Constraints` button.
 1. Add the following two constraints using the `Add New Constraints` popup:
-    - (Outer Stack View) Leading Edge 22pts from Super View (Input Card) Leading Edge
+    - (Outer Stack View) Leading Edge 22pts from Super View (output card) Leading Edge
     - (Outer Stack View) Trailing Edge 22pts from Super View Trailing Edge
-1. In the _Document Outline_, hold down control (ctrl) and click-drag from the outer stack view to it's super view (input card).
+1. In the _Document Outline_, hold down control (ctrl) and click-drag from the outer stack view to it's super view (output card).
 1. In the popup, select `Center Vertically In Container` to create a new constraint. This will vertically align the outer stack view's center with it's super view's center.
 
 To finish up, we'll add the remaining width constraints.
