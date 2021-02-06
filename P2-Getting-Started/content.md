@@ -20,6 +20,21 @@ Run the new starter project to make sure there are no compilation errors. If all
 >
 ![Empty Screen](assets/white_screen.png)
 
+## Addressing Possible Warnings 
+
+> [action]
+Alternatively, if you have a few warnings pop up (which can happen as XCode and Swift are constantly growing, changing, and updating), you can move forward with clicking the **Perform Changes** button. 
+>
+![Build Warnings](assets/00_build_warnings.png)
+
+> [action]
+You may also have a warning to convert the starter project to the latest Swift version. The warning will look similar to the following. Feel free to move forward with the update. 
+>
+![Build Warnings](assets/01_conversion_warning.png)
+Wrap up by saving the changes! 
+![Build Warnings](assets/03_finish_warnings.png)
+
+
 Next, let's take a look inside our starter project.
 
 ## View Controller
