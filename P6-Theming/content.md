@@ -378,4 +378,14 @@ Build and run your project. Toggle the `UISwitch` to switch between light and da
 >
 ![Finished UI Dark](assets/finished_ui_dark.png)
 
+# Feedback and Review - 2 minutes
+
+**We promise this won't take longer than 2 minutes!**
+
+Please take a moment to rate your understanding of the learning outcomes from this tutorial, and how we can improve it via our [tutorial feedback form](https://forms.gle/nbiTz8z1wWZgrwDSA)
+
+This allows us to get feedback on how well the students are grasping the learning outcomes, and tells us where we can improve the tutorial experience.
+
+# What's Next?
+
 After implementing our theming feature, we've completed our tip calculator's functionality and design! In the next section, we'll review what we've learned and set you on a challenge to practice your new skills.
