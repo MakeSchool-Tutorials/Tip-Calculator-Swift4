@@ -231,14 +231,23 @@ You'll notice above:
 Let's add the final constraint to define the header view's height.
 
 > [action]
-Add a constraint from the bottom edge of the header view to the top edge of the _Safe Area_: ![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/nav_bar_safe_area_constraint.mp4)
+Add a constraint from the bottom edge of the header view to the top edge of the _Safe Area_: 
+![ms-video](https://s3.amazonaws.com/mgwu-misc/Tip+Calculator+Swift+4/p3_ui_layout/nav_bar_safe_area_constraint.mp4)
 >
-To add the constraint in the video, follow the steps below:
+To add the constraints in the video, follow the steps below:
 >
 1. Select the header view (`UIView`) in the _Document Outline_.
 1. With the header view selected, hold down the control button (ctrl) and click-drag from the header view to the _Safe Area_ view in your _Document Outline_.
-1. Once you let go, you'll see a pop-up with the options to add a new constraint. Select _Vertical Spacing_. This will set a vertical spacing constraint from the top edge of our header view to the top edge of the _Safe Area_.
+>
+![Connecting Safe Area](assets/01_safe-area-constraints.png)
+>
+1. Once you let go, you'll see a pop-up with the options to add a new constraint. Select _Vertical Spacing_. This will set a vertical spacing constraint from the top edge of our header view to the top edge of the _Safe Area_. If _Vertical Spacing_ is not available, you can add _Leading Space to Safe Area_, _Top Space to Safe Area_, and  _Trailing Space to Safe Area_ for the same effect. To select multiple constraints at once, _click_ and _hold_ `CMD` while selecting the options.  
+>
+![Constraints pop-up](assets/02_constraints-popup.png)
+>
 1. (Optional) If you'd like to adjust the constraint, you can click on it and adjust it's values in the _Size Inspector_.
+
+![Constraints pop-up](assets/03_vertical-space-constraints.png)
 
 Congrats, we've added our first set of constraints to our header view. Try running your app in multiple different simulators and see if our header view properly adjusts it's frame to each device.
 
