@@ -190,7 +190,7 @@ We'll need the text field for the user to input their bill amount.
 
 Similar to the switch, the `UISegmentedControl` class provides a UI object that allows the user to toggle between different options. The main different being that a segmented control can have 2+ different states, while a switch can only toggle in-between an on and off state.
 
-In addition to 2+ toggle states, switches can also have each option name labeled. Let's take a look at the segmented control we'll use in our tip calculator.
+In addition to 2+ toggle states, segmented controls can also have each option name labeled. Let's take a look at the segmented control we'll use in our tip calculator.
 
 ![Tip Percentage Segmented Control](assets/tip_input_segmented_control.png)
 

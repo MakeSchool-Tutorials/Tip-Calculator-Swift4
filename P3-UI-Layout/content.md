@@ -257,7 +257,7 @@ It works! Next, we'll dive deeper into _auto-layout_ and the different kind of c
 
 # Different Types of Constraints
 
-To properly setup constraints for our header view, we've only used one type of constraints but there are many different types of constraints that you can use to build complex UI layouts. Before setting up constraints for any of our other fews, let's look at common constraints we can use to build dynamic layouts with _auto-layout_.
+To properly setup constraints for our header view, we've only used one type of constraints but there are many different types of constraints that you can use to build complex UI layouts. Before setting up constraints for any of our other views, let's look at common constraints we can use to build dynamic layouts with _auto-layout_.
 
 ## Relative Positioning
 

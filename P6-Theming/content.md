@@ -342,8 +342,14 @@ To toggle our theme each time our `UISwitch` is toggled, we'll need to connect o
 Call `setTheme(isDark:)` in `themeToggled(_:)`:
 >
 ```
-@IBAction func themeToggled(_ sender: UISwitch) {
-    setTheme(isDark: sender.isOn)
+
+@IBAction func switchToggled(_ sender: UISwitch) {
+    if sender.isOn {
+        setTheme(isDark: sender.isOn)
+    } else {
+        // 👉 Toggle off
+        setTheme(isDark: false)
+    }
 }
 ```
 >
