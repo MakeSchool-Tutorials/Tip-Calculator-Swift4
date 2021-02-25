@@ -23,6 +23,10 @@ When the user taps on the _Bill Amount Text Field_, the decimal pad keyboard wil
 
 We'll fix this first, by implementing a _Calculate Button_ that will appear right above the keyboard.
 
+If you're testing using simulators on Xcode and the keyboard does not appear automatically when clicking the text field, you may need to enable keypad by opening the simulator, clicking I/O, and then deselect “connect hardware keyboard”. 
+
+![Keypad setting](assets/00_keypad-setting.png)
+
 > [info]
 To keep things simple, there's a bit of _magic_ that happens behind these scene for our soon-to-be calculate button. We've abstracted the majority into a custom `UITextField` subclass which will replace our current `UITextField`. Even if you don't fully understand how our calculate button is being displayed, bear with us for now!
 
