@@ -31,7 +31,42 @@ To keep things simple, there's a bit of _magic_ that happens behind these scene 
 > [action]
 Open `BillAmountTextField.swift` from your _Project Navigator_. You should see the following:
 >
-![Bill Amount Text Field Swift Code](assets/bill_amount_text_field_swift.png)
+<!-- ![Bill Amount Text Field Swift Code](assets/bill_amount_text_field_swift.png) -->
+
+```swift 
+
+import UIKit
+
+class BillAmountTextField: UITextField {
+    
+    // MARK: - Properties
+    
+    var calculateButtonAction: (() -> Void)?
+    
+    // MARK: - View Lifecycle
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let toolbar: UIToolbar = UIToolbar()
+        
+        let leadingFlex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let trailingFlex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let calculateButton = UIBarButtonItem(title: "Calculate Tip", style: .done, target: self, action: #selector(calculateButtonTapped(_:)))
+        toolbar.items = [leadingFlex, calculateButton, trailingFlex]
+        
+        // resizes toolbar
+        toolbar.sizeToFit()
+        
+        self.inputAccessoryView = toolbar
+    }
+    
+    @objc private func calculateButtonTapped(_ sender: UIBarButtonItem) {
+        calculateButtonAction?()
+    }
+}
+
+```
 
 The biggest thing to note, is that `BillAmountTextField.swift` is a custom subclass of `UITextField`. Our custom text field has an _input accessory view_, or a view that will be positioned just above the keyboard.
 
